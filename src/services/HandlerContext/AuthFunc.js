@@ -23,10 +23,10 @@ export const AuthProvider = ({ children }) => {
           }
           mainDispatcher({ type: "loggedInTrue", payload: true });
           mainDispatcher({ type: "setUser", payload: response.data.foundUser });
-          mainDispatcher({
-            type: "setToken",
-            payload: response.data.encodedToken,
-          });
+          // mainDispatcher({
+          //   type: "setToken",
+          //   payload: response.data.encodedToken,
+          // });
           mainDispatcher({
             type: "profileData",
             payload: response.data.foundUser,

@@ -20,8 +20,8 @@ export const Home = () => {
             <h3>{post.username}</h3>
               {post.content}
               <p>
-                <button onClick={likeHandler}>Likes</button>
-                {post.likes.likeCount}
+                <button onClick={()=>likeHandler(post._id)}> Likes </button>
+                 {post.likes.likeCount}
               </p>
               <p><button>Bookmark</button></p>
             </li>

@@ -19,7 +19,7 @@ export const MainContextProvider = ({ children }) => {
     userProfile:{fName: "", lName: "", username: "" },
     bookMark: [],
     posts: [],
-    token:storedToken ?storedToken :''
+    token:storedToken ? storedToken :''
   };
   //  signedInUser: {
   //     fName: "",

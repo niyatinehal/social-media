@@ -10,6 +10,7 @@ import { Explore } from './Pages/ExplorePage/Explore';
 import { LikedPage } from './Pages/LikedPage/LikedPage';
 import { LoginPage } from './Pages/LoginPage/LoginPage';
 import { UserProfile } from './Pages/UserProfile/UserProfile';
+import Mockman from "mockman-js"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/liked" element={<LikedPage/>}/>
         <Route path='/login-page' element={<LoginPage/>}/>
         <Route path='/user-profile' element={<UserProfile/>}/>
+        <Route path="/mockman" element={<Mockman/>}/>
 
       </Routes>
     </div>

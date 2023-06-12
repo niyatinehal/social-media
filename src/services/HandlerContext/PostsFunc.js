@@ -1,14 +1,14 @@
 //liked & disliked
 import axios from "axios";
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 
 import { createContext } from "react";
+import { MainContext } from "../contexts/MainContext";
 
 export const PostContext = createContext();
 
 export const PostsContextProvider = ({ children }) => {
-
-
+  const { mainState } = useContext(MainContext);
   const initialState = {
     likes: 0,
   };
@@ -18,7 +18,7 @@ export const PostsContextProvider = ({ children }) => {
       case "liked":
         return {
           ...state,
-          liked: action.payload+1,
+          liked: action.payload + 1,
         };
 
       default:
@@ -27,15 +27,23 @@ export const PostsContextProvider = ({ children }) => {
   };
   const [postState, postDispatch] = useReducer(postReducer, initialState);
 
-  const likeHandler=async()=>{
-
-    const response= await axios.post('/api/posts/like/:postId')
-     console.log("likeHandler:",response)
-   
-  }
+  const likeHandler = async (postId) => {
+    console.log(postId);
+    try {
+      const response = await axios.post(`/api/posts/like/${postId}`, {
+        headers: {
+          authorization:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI0NDhiMmQ5My0zNzcyLTQ3OTUtOWViYS1mMzlkMDZmZTFjOWEiLCJ1c2VybmFtZSI6ImFkYXJzaGJhbGlrYSJ9.ek5miVGHotZO3WaKUsUQy4mcyBpqiVehiV2qac2808w",
+        },
+      });
+      console.log("likeHandler:", response);
+    } catch (error) {
+      console.log("like-error", error);
+    }
+  };
 
   return (
-    <PostContext.Provider value={{postState,postDispatch,likeHandler}}>
+    <PostContext.Provider value={{ postState, postDispatch, likeHandler }}>
       {children}
     </PostContext.Provider>
   );
