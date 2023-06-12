@@ -10,13 +10,16 @@ export const MainContextProvider = ({ children }) => {
     const resUser = await axios.get("/api/users");
     mainDispatcher({ type: "getUsers", payload: resUser.data.users });
   };
+  const storedToken = localStorage.getItem("token");
 
   const mainData = {
     user: [],
-    isLoggedIn: false,
-    signedInUser: {fName:'',lName:'',userName:''},
+    isLoggedIn: storedToken ? true : false,
+    signedInUser: {},
+    userProfile:{fName: "", lName: "", username: "" },
     bookMark: [],
     posts: [],
+    token:storedToken ?storedToken :''
   };
   //  signedInUser: {
   //     fName: "",
@@ -39,11 +42,45 @@ export const MainContextProvider = ({ children }) => {
           ...state,
           user: action.payload,
         };
-      case "newUsers":
+      case "setUser":
+        return{
+          ...state,
+          signedInUser:action.payload
+        }
+      // case "userDetails": {
+      //   const user = {
+      //     username: action.payload.username,
+      //   };
+
+      //   return {
+      //     ...state,
+      //     signedInUser: user,
+      //   };
+      // }
+
+      case "profileData":{
+        const user={
+          fName:action.payload.firstName,
+          lName:action.payload.lastName,
+          username:action.payload.username
+        }
+        return{
+          ...state,
+          userProfile:user
+        }
+      }
+
+      case "loggedInTrue":
         return {
           ...state,
-          signedInUser: action.payload,
+          isLoggedIn: action.payload,
         };
+
+      case "setToken":
+        return{
+          ...state,
+          token:action.payload
+        }
     }
   };
 

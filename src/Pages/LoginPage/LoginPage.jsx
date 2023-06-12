@@ -5,11 +5,10 @@ import { MainContext } from "../../services/contexts/MainContext";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const { LoginHandler } = useContext(AuthContext);
+  const { LoginHandler,authState } = useContext(AuthContext);
   const { mainState } = useContext(MainContext);
 
-  const [userData, setUserData] = useState({username:'',password:''});
-//   console.log("signed In user", mainState.user, "userDATA", userData);
+  const [userData, setUserData] = useState(mainState.signedInUser);
 
   const guestUser = {
     username: "adarshbalika",
@@ -23,9 +22,12 @@ export const LoginPage = () => {
     } else {
       console.log("logged in data", userData);
       LoginHandler(userData);
+      console.log("authuser",authState)
       navigate("/user-profile");
     }
   };
+
+  
 
   const guestLogin = (e) => {
     e.preventDefault();

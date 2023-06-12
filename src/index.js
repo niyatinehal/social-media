@@ -16,15 +16,15 @@ makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <MainContextProvider>
-      <AuthProvider>
-        <PostsContextProvider>
-          <Router>
+    <Router>
+      <MainContextProvider>
+        <AuthProvider>
+          <PostsContextProvider>
             <App />
-          </Router>
-        </PostsContextProvider>
-      </AuthProvider>
-    </MainContextProvider>
+          </PostsContextProvider>
+        </AuthProvider>
+      </MainContextProvider>
+    </Router>
   </React.StrictMode>
 );
 

@@ -6,7 +6,7 @@ import { PostContext } from "../../services/HandlerContext/PostsFunc";
 export const Home = () => {
   const { mainState } = useContext(MainContext);
   const {postState,postDispatch,likeHandler }=useContext(PostContext)
-  console.log("home", mainState.posts);
+  console.log("user", mainState.user);
   // const likeHandler=()=>{
   // console.log()
   // }
@@ -15,7 +15,7 @@ export const Home = () => {
     <div>
       <div>
         {mainState?.posts.map((post) => (
-          <div>
+          <div key={post.id}>
             <li key={post.id}>
             <h3>{post.username}</h3>
               {post.content}
@@ -25,6 +25,14 @@ export const Home = () => {
               </p>
               <p><button>Bookmark</button></p>
             </li>
+          </div>
+        ))}
+      </div>
+      <div>
+        <h3>who to follow?</h3>
+        {mainState?.user?.map((user)=>(
+          <div>
+            <li><strong>{user.username}</strong></li>
           </div>
         ))}
       </div>

@@ -10,27 +10,93 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "Demon slayer episode Kyojuro Rengoku vs Akaza was stunning and emotional fight",
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshbalika",
+    firstName:"Tony",
+    username: "tonyStark",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/reng_vs_akaza.webp"
+
   },
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "Rewatching battle between naruto vs pain, Naruto makes an entrance into the Hidden Leaf Village, but doesn’t recognize his surroundings. Naruto is unable to sense the Chakra of many beloved to him, including his teacher Kakashi Hatake.",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
+    firstName:"Naruto",
+    username: "narutoUzumaki",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/naruto_vs_pain.webp"
+  },
+  {
+    _id: uuid(),
+    content:
+      "Waiting for Attack on Titan Final episode",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+      
+    },
+    firstName:"Kakshi",
+    username: "kakshiOfTheSharigan",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/eren.webp"
+  },
+  {
+    _id: uuid(),
+    content:
+      "Hope soon vegeta will get ultra instinct",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    firstName:"Tanjiro",
+    username: "TanjiroTheSunBreather",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/vegeta.webp"
+  },
+  {
+    _id: uuid(),
+    content:
+      "Waiting for Satoru Gojo to unleash his full power",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    firstName:"Adarsh",
+    username: "adarshbalika",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://github.com/Nithin3008/social_media_proj/blob/master/public/images/Gojo.jpg?raw=true"
   },
 ];

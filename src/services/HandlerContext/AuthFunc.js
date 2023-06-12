@@ -7,26 +7,28 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const { mainDispatcher, mainState } = useContext(MainContext);
+  const navigate = useNavigate();
 
   const LoginHandler = (userDeets) => {
     const login = async () => {
-
       try {
         const response = await axios.post("/api/auth/login", {
           username: userDeets.username,
-          password: userDeets.password
+          password: userDeets.password,
         });
         if (response.status === 200) {
           localStorage.setItem("token", response.data.encodedToken);
-          {console.log("loginc",response.data.foundUser)}
-          authDispatcher({ type: "loggedInTrue", payload: true });
-          authDispatcher({ type: "setUser", payload: response.data.foundUser });
-          authDispatcher({
+          {
+            console.log("loginc", response.data.foundUser);
+          }
+          mainDispatcher({ type: "loggedInTrue", payload: true });
+          mainDispatcher({ type: "setUser", payload: response.data.foundUser });
+          mainDispatcher({
             type: "setToken",
             payload: response.data.encodedToken,
           });
           mainDispatcher({
-            type: "getUsers",
+            type: "profileData",
             payload: response.data.foundUser,
           });
         }
@@ -47,20 +49,25 @@ export const AuthProvider = ({ children }) => {
           password: userDetails?.password,
         });
 
-        console.log("signup check",response)
+        console.log("signup check", response);
 
         if (response.status === 201) {
           localStorage.setItem("token", response.data.encodedToken);
-          authDispatcher({ type: "loggedInTrue", payload: true });
-          authDispatcher({
+          mainDispatcher({ type: "loggedInTrue", payload: true });
+          mainDispatcher({
             type: "setUser",
             payload: response.data.createdUser,
           });
-          authDispatcher({
+          mainDispatcher({
             type: "setToken",
             payload: response.data.encodedToken,
           });
-          mainDispatcher({type:"getUsers",payload:userDetails});
+          mainDispatcher({ type: "userDetails", payload: userDetails });
+          mainDispatcher({
+            type: "profileData",
+            payload: userDetails,
+          });
+          mainDispatcher({ type: "loggedInTrue", payload: true });
         }
       } catch (error) {
         console.log("sign up error", error);
@@ -68,47 +75,10 @@ export const AuthProvider = ({ children }) => {
     };
     signup();
   };
-  const storedToken = localStorage.getItem("token");
-
-  const authReducer = (state, action) => {
-    switch (action.type) {
-      case "loggedInTrue":
-        return {
-          ...state,
-          isLoggedIn: action.payload,
-        };
-      case "loggedInFalse":
-        return {
-          ...state,
-          isLoggedIn: action.payload,
-        };
-      case "setUser":
-        return {
-          ...state,
-          user: action.payload,
-        };
-      case "setToken":
-        return {
-          ...state,
-          token: action.payload,
-        };
-      default:
-        return state;
-    }
-  };
-
-  const [authState, authDispatcher] = useReducer(authReducer, {
-    isLoggedIn: storedToken ? true : false,
-    user: {},
-    token: storedToken ? storedToken : "",
-  });
-
 
   return (
     <div>
-      <AuthContext.Provider
-        value={{ LoginHandler, signupHandler, authState, authDispatcher }}
-      >
+      <AuthContext.Provider value={{ LoginHandler, signupHandler }}>
         {children}
       </AuthContext.Provider>
     </div>
