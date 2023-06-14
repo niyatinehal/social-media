@@ -38,7 +38,9 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/liked" element={<LikedPage />} />
         <Route path="/login-page" element={<LoginPage />} />
-        <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/user-profile" element={<RequireAuth isLoggedIn={mainState.isLoggedIn}>
+              <UserProfile/>
+            </RequireAuth>}/>
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>

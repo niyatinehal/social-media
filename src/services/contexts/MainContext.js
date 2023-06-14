@@ -15,12 +15,13 @@ export const MainContextProvider = ({ children }) => {
   const mainData = {
     existingUser: [],
     isLoggedIn: storedToken ? true : false,
-    loggedInUser: { fName: "", lName: "", username: ""},
+    loggedInUser: { fName: "", lName: "", username: "" },
     bookMark: [],
     posts: [],
+    followers: [],
+    following: [],
     token: storedToken ? storedToken : "",
   };
- 
 
   const mainReducer = (state, action) => {
     switch (action.type) {
@@ -42,13 +43,21 @@ export const MainContextProvider = ({ children }) => {
         };
         return {
           ...state,
-          loggedInUser: user
+          loggedInUser: user,
+          bookMark: action.payload.bookmark,
+          followers: action.payload.followers,
+          following: action.payload.following,
         };
 
       case "loggedInTrue":
         return {
           ...state,
           isLoggedIn: action.payload,
+        };
+      case "setToken":
+        return {
+          ...state,
+          token: action.payload,
         };
     }
   };

@@ -21,6 +21,8 @@ export const AuthProvider = ({ children }) => {
         console.log("loginc", response.data.foundUser);
       }
       mainDispatcher({ type: "userDetails", payload: response.data.foundUser });
+      mainDispatcher({ type: "loggedInTrue", payload: true });
+      mainDispatcher({type:"setToken",payload:response.data.encodedToken})
 
       if (response.status === 200) {
         console.log("after login", mainState.loggedInUser);
@@ -43,7 +45,9 @@ export const AuthProvider = ({ children }) => {
 
       if (response.status === 201) {
         console.log("after signup", mainState.signedInUser);
-        <p>welcome</p>
+        mainDispatcher({type:"userDetails",payload:response.data.createdUser});
+        console.log(mainState.loggedInUser);
+        <p>welcome</p>;
         navigate("/login-page");
       }
     } catch (error) {
