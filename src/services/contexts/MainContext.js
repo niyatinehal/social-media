@@ -13,22 +13,14 @@ export const MainContextProvider = ({ children }) => {
   const storedToken = localStorage.getItem("token");
 
   const mainData = {
-    user: [],
+    existingUser: [],
     isLoggedIn: storedToken ? true : false,
-    signedInUser: {},
-    userProfile:{fName: "", lName: "", username: "" },
+    loggedInUser: { fName: "", lName: "", username: ""},
     bookMark: [],
     posts: [],
-    token:storedToken ? storedToken :''
+    token: storedToken ? storedToken : "",
   };
-  //  signedInUser: {
-  //     fName: "",
-  //     lName: "",
-  //     userName: "",
-  //     bio: "",
-  //     portFolio: "",
-  //     dp: "",
-  //   },
+ 
 
   const mainReducer = (state, action) => {
     switch (action.type) {
@@ -40,47 +32,24 @@ export const MainContextProvider = ({ children }) => {
       case "getUsers":
         return {
           ...state,
-          user: action.payload,
+          existingUser: action.payload,
         };
-      case "setUser":
-        return{
+      case "userDetails":
+        const user = {
+          fName: action.payload.firstName,
+          lName: action.payload.lastName,
+          username: action.payload.username,
+        };
+        return {
           ...state,
-          signedInUser:action.payload
-        }
-      // case "userDetails": {
-      //   const user = {
-      //     username: action.payload.username,
-      //   };
-
-      //   return {
-      //     ...state,
-      //     signedInUser: user,
-      //   };
-      // }
-
-      case "profileData":{
-        const user={
-          fName:action.payload.firstName,
-          lName:action.payload.lastName,
-          username:action.payload.username
-        }
-        return{
-          ...state,
-          userProfile:user
-        }
-      }
+          loggedInUser: user
+        };
 
       case "loggedInTrue":
         return {
           ...state,
           isLoggedIn: action.payload,
         };
-
-      case "setToken":
-        return{
-          ...state,
-          token:action.payload
-        }
     }
   };
 

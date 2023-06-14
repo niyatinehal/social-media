@@ -8,42 +8,39 @@ import { MainContext } from "../contexts/MainContext";
 export const PostContext = createContext();
 
 export const PostsContextProvider = ({ children }) => {
-  const { mainState } = useContext(MainContext);
-  const initialState = {
-    likes: 0,
-  };
+  const { mainState,dispatcherMain,loggedInUser } = useContext(MainContext);
 
-  const postReducer = (state, action) => {
-    switch (action.type) {
-      case "liked":
-        return {
-          ...state,
-          liked: action.payload + 1,
-        };
+  const empt=JSON.stringify({});
+  console.log(empt)
 
-      default:
-        return state;
-    }
-  };
-  const [postState, postDispatch] = useReducer(postReducer, initialState);
+  const encodedToken=localStorage.getItem("token")
+
+  const getPosts=async()=>{
+try {
+  const response=await axios.get("/api/posts");
+  if(response.status===200){
+    dispatcherMain({type:"getPosts",payload:response.data.posts})  
+  }
+} catch (error) {
+  console.log(error)
+}
+  }
 
   const likeHandler = async (postId) => {
-    console.log(postId);
     try {
-      const response = await axios.post(`/api/posts/like/${postId}`, {
+      const response = await axios.post(`/api/posts/like/${postId}`,empt, {
         headers: {
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI0NDhiMmQ5My0zNzcyLTQ3OTUtOWViYS1mMzlkMDZmZTFjOWEiLCJ1c2VybmFtZSI6ImFkYXJzaGJhbGlrYSJ9.ek5miVGHotZO3WaKUsUQy4mcyBpqiVehiV2qac2808w",
+          authorization: mainState.token,
         },
       });
-      console.log("likeHandler:", response);
+      console.log("likeHandler:", response.data.posts);
     } catch (error) {
       console.log("like-error", error);
     }
   };
 
   return (
-    <PostContext.Provider value={{ postState, postDispatch, likeHandler }}>
+    <PostContext.Provider value={{ likeHandler,getPosts }}>
       {children}
     </PostContext.Provider>
   );

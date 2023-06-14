@@ -3,11 +3,11 @@ import { MainContext } from '../../services/contexts/MainContext'
 
 export const UserProfile = () => {
   const{mainState}=useContext(MainContext);
-  console.log("userPrifile",mainState.userProfile.fName)
+  console.log("userPrifile",mainState.loggedInUser)
   return (
     <div>
       <div>
-        <p><strong>Name: </strong>{mainState.userProfile.fName}{" "}{mainState.userProfile.lName}</p>
+        <p><strong>Name: </strong>{mainState.loggedInUser.fName}{" "}{mainState.loggedInUser.lName}</p>
       </div>
     </div>
   )

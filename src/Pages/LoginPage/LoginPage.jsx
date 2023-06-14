@@ -5,35 +5,32 @@ import { MainContext } from "../../services/contexts/MainContext";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const { LoginHandler,authState } = useContext(AuthContext);
+  const { login,signup,authState} = useContext(AuthContext);
   const { mainState } = useContext(MainContext);
 
-  const [userData, setUserData] = useState(mainState.signedInUser);
+  const [userData, setUserData] = useState(mainState.loggedInUser);
 
   const guestUser = {
     username: "adarshbalika",
     password: "adarshBalika123",
   };
 
-  const login = (e) => {
+  const loginHandler = (e) => {
     e.preventDefault();
     if (!userData.username || !userData.password) {
       console.log("invalid input");
     } else {
       console.log("logged in data", userData);
-      LoginHandler(userData);
-      console.log("authuser",authState)
-      navigate("/user-profile");
+      login(userData);
+    
     }
   };
-
-  
 
   const guestLogin = (e) => {
     e.preventDefault();
     setUserData(guestUser);
-    LoginHandler(guestUser);
-    navigate("/user-profile");
+    login(guestUser);
+  
   };
 
   return (
@@ -64,10 +61,10 @@ export const LoginPage = () => {
               }}
             />
             <div>
-              <button onClick={login}>Login</button>
+              <button onClick={(e)=>loginHandler(e)}>Login</button>
             </div>
             <div>
-              <button onClick={guestLogin}>Guest Login</button>
+              <button onClick={(e)=>guestLogin(e)}>Guest Login</button>
             </div>
           </div>
         </form>

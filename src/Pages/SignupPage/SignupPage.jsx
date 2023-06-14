@@ -6,9 +6,9 @@ import { MainContext } from "../../services/contexts/MainContext";
 
 export const SignupPage = () => {
   const navigate = useNavigate();
-  const { signupHandler } = useContext(AuthContext);
-  const { mainDispatcher, mainState }=useContext(MainContext);
- 
+  const { signup } = useContext(AuthContext);
+  const { mainDispatcher, mainState } = useContext(MainContext);
+
   const [userDeets, setUserDeets] = useState({
     firstName: "",
     lastName: "",
@@ -18,8 +18,9 @@ export const SignupPage = () => {
     confirmPassword: "",
   });
 
-  const signup = (e) => {
-    e.preventDefault();
+  const signupHandler = (e) => {
+     e.preventDefault();
+     
     const Details = {
       fName: e.target.firstName.value,
       lName: e.target.lastName.value,
@@ -28,23 +29,14 @@ export const SignupPage = () => {
       password: e.target.password.value,
       confirmPassword: e.target.confirmPassword.value,
     };
-    
-    if (
-      !Details?.fName ||
-      !Details?.lName ||
-      !Details?.username ||
-      !Details?.email ||
-      !Details?.password ||
-      !Details?.confirmPassword
-    ) {
-      console.log("invalid input");
-    } else if (Details.password !== Details.confirmPassword) {
+    console.log(Details)
+
+    if (Details.password !== Details.confirmPassword) {
       console.log("passwords should be same");
     } else {
-      signupHandler(Details);
+       signup(Details);
 
-      navigate("/login-page");
-     
+       navigate("/login-page");
     }
   };
 
@@ -53,7 +45,7 @@ export const SignupPage = () => {
       <div>
         <h1>K-Verse</h1>
         <h2>Sign-up</h2>
-        <form onSubmit={(e) => signup(e)}>
+        <form onSubmit={(e) => signupHandler(e)}>
           <p>First Name</p>
           <input
             id="firstName"

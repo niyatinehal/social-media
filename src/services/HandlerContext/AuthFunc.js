@@ -9,76 +9,51 @@ export const AuthProvider = ({ children }) => {
   const { mainDispatcher, mainState } = useContext(MainContext);
   const navigate = useNavigate();
 
-  const LoginHandler = (userDeets) => {
-    const login = async () => {
-      try {
-        const response = await axios.post("/api/auth/login", {
-          username: userDeets.username,
-          password: userDeets.password,
-        });
-        if (response.status === 200) {
-          localStorage.setItem("token", response.data.encodedToken);
-          {
-            console.log("loginc", response.data.foundUser);
-          }
-          mainDispatcher({ type: "loggedInTrue", payload: true });
-          mainDispatcher({ type: "setUser", payload: response.data.foundUser });
-          // mainDispatcher({
-          //   type: "setToken",
-          //   payload: response.data.encodedToken,
-          // });
-          mainDispatcher({
-            type: "profileData",
-            payload: response.data.foundUser,
-          });
-        }
-      } catch (error) {
-        console.log("login Error", error);
+  const login = async (userDeets) => {
+    console.log(userDeets);
+    try {
+      const response = await axios.post("/api/auth/login", {
+        username: userDeets.username,
+        password: userDeets.password,
+      });
+      localStorage.setItem("token", response.data.encodedToken);
+      {
+        console.log("loginc", response.data.foundUser);
       }
-    };
-    login();
+      mainDispatcher({ type: "userDetails", payload: response.data.foundUser });
+
+      if (response.status === 200) {
+        console.log("after login", mainState.loggedInUser);
+        navigate("/");
+      }
+    } catch (error) {
+      console.log("login Error", error);
+    }
   };
 
-  const signupHandler = (userDetails) => {
-    const signup = async () => {
-      try {
-        const response = await axios.post("/api/auth/signup", {
-          firstName: userDetails?.fname,
-          lastName: userDetails?.lName,
-          username: userDetails?.username,
-          password: userDetails?.password,
-        });
+  const signup = async (userDetails) => {
+    try {
+      const response = await axios.post("/api/auth/signup", {
+        firstName: userDetails?.fname,
+        lastName: userDetails?.lName,
+        username: userDetails?.username,
+        password: userDetails?.password,
+      });
+      localStorage.setItem("token", response.data.encodedToken);
 
-        console.log("signup check", response);
-
-        if (response.status === 201) {
-          localStorage.setItem("token", response.data.encodedToken);
-          mainDispatcher({ type: "loggedInTrue", payload: true });
-          mainDispatcher({
-            type: "setUser",
-            payload: response.data.createdUser,
-          });
-          mainDispatcher({
-            type: "setToken",
-            payload: response.data.encodedToken,
-          });
-          mainDispatcher({ type: "userDetails", payload: userDetails });
-          mainDispatcher({
-            type: "profileData",
-            payload: userDetails,
-          });
-          mainDispatcher({ type: "loggedInTrue", payload: true });
-        }
-      } catch (error) {
-        console.log("sign up error", error);
+      if (response.status === 201) {
+        console.log("after signup", mainState.signedInUser);
+        <p>welcome</p>
+        navigate("/login-page");
       }
-    };
-    signup();
+    } catch (error) {
+      console.log("sign up error", error);
+    }
   };
 
   return (
     <div>
-      <AuthContext.Provider value={{ LoginHandler, signupHandler }}>
+      <AuthContext.Provider value={{ login, signup }}>
         {children}
       </AuthContext.Provider>
     </div>
