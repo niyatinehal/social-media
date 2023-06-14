@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../services/HandlerContext/AuthFunc";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { MainContext } from "../../services/contexts/MainContext";
 
 export const SignupPage = () => {
@@ -108,6 +108,9 @@ export const SignupPage = () => {
             <button type="submit">SignUp!</button>
           </div>
         </form>
+        <div>
+          <button onClick={()=>navigate("/login-page")}>Already a User</button>
+        </div>
       </div>
     </div>
   );

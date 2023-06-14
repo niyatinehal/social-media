@@ -8,10 +8,9 @@ import { MainContext } from "../contexts/MainContext";
 export const PostContext = createContext();
 
 export const PostsContextProvider = ({ children }) => {
-  const { mainState,dispatcherMain,loggedInUser } = useContext(MainContext);
+  const { mainState,mainDispatcher,loggedInUser } = useContext(MainContext);
 
   const empt=JSON.stringify({});
-  console.log(empt)
 
   const encodedToken=localStorage.getItem("token")
 
@@ -19,7 +18,7 @@ export const PostsContextProvider = ({ children }) => {
 try {
   const response=await axios.get("/api/posts");
   if(response.status===200){
-    dispatcherMain({type:"getPosts",payload:response.data.posts})  
+   mainDispatcher({type:"getPosts",payload:response.data.posts})  
   }
 } catch (error) {
   console.log(error)
@@ -33,14 +32,18 @@ try {
           authorization: mainState.token,
         },
       });
-      console.log("likeHandler:", response.data.posts);
+      if(response.status===201){
+        console.log("likeHandler:", response.data.posts);
+      mainDispatcher({type:"getPosts",payload:response.data.posts});
+      }
+      
     } catch (error) {
       console.log("like-error", error);
     }
   };
 
   return (
-    <PostContext.Provider value={{ likeHandler,getPosts }}>
+    <PostContext.Provider value={{ likeHandler,getPosts}}>
       {children}
     </PostContext.Provider>
   );

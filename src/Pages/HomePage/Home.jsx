@@ -18,7 +18,7 @@ export const Home = () => {
               {post.content}
               <p>
                 <button onClick={()=>likeHandler(post._id)}> Likes </button>
-                 {post.likes.likeCount}
+                {post.likes.likeCount}
               </p>
               <p><button>Bookmark</button></p>
             </li>
