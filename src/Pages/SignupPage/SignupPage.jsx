@@ -16,7 +16,7 @@ export const SignupPage = () => {
     email: "",
     password: "",
     confirmPassword: "",
-  });
+  }); 
 
   const signupHandler = (e) => {
      e.preventDefault();
@@ -29,7 +29,6 @@ export const SignupPage = () => {
       password: e.target.password.value,
       confirmPassword: e.target.confirmPassword.value,
     };
-    console.log(Details)
 
     if (Details.password !== Details.confirmPassword) {
       console.log("passwords should be same");

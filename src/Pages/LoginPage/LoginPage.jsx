@@ -5,10 +5,10 @@ import { MainContext } from "../../services/contexts/MainContext";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const { login,signup,authState} = useContext(AuthContext);
+  const { Login,signup,authState} = useContext(AuthContext);
   const { mainState } = useContext(MainContext);
 
-  const [userData, setUserData] = useState(mainState.loggedInUser);
+  const userData={username:"",password:''}
 
   const guestUser = {
     username: "adarshbalika",
@@ -21,15 +21,14 @@ export const LoginPage = () => {
       console.log("invalid input");
     } else {
       console.log("logged in data", userData);
-      login(userData);
-    
+      Login(userData);    
     }
   };
 
   const guestLogin = (e) => {
     e.preventDefault();
-    setUserData(guestUser);
-    login(guestUser);
+    // setUserData(guestUser);
+    Login(guestUser);
   
   };
 
@@ -45,25 +44,21 @@ export const LoginPage = () => {
               id="username"
               type="text"
               required
-              value={userData.username}
-              onChange={(e) => {
-                setUserData((prev) => ({ ...prev, username: e.target.value }));
-              }}
+              //value={userData.username}
+              onChange={(e) =>userData.username=e.target.value}
             />
             <p>Password: </p>
             <input
               id="password"
               type="password"
               required
-              value={userData.password}
-              onChange={(e) => {
-                setUserData((prev) => ({ ...prev, password: e.target.value }));
-              }}
+              // value={userData?.password}
+              onChange={(e) =>userData.password=e.target.value}
             />
             <div>
               <button onClick={(e)=>loginHandler(e)}>Login</button>
             </div>
-            <div>
+            <div> 
               <button onClick={(e)=>guestLogin(e)}>Guest Login</button>
             </div>
           </div>

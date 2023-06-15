@@ -6,7 +6,7 @@ const sign = require("jwt-encode");
 /**
  * All the routes related to Auth are present here.
  * These are Publicly accessible routes.
- * */
+ * */ 
 
 /**
  * This handler handles user signups.

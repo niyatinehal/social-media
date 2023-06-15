@@ -3,24 +3,30 @@ import { MainContext } from "../../services/contexts/MainContext";
 import { PostContext } from "../../services/HandlerContext/PostsFunc";
 
 export const Home = () => {
-  const { mainState } = useContext(MainContext);
-  const { likeHandler, dislikeHandler, checkLikes } = useContext(PostContext);
-  const [liked, setLiked] = useState(false);
-
-  const like = (postId, posts) => {
-    const findPost = posts?.filter((post) => post._id === postId);
-    findPost ? setLiked(!liked) : setLiked(liked);
-  };
+  const { mainState, loggedInUser } = useContext(MainContext);
+  const {
+    likeHandler,
+    dislikeHandler,
+    checkLikes,
+    checkBookmark,
+    initialBookmark,
+    bookmarkAdded,removeBookmark
+  } = useContext(PostContext);
 
   return (
     <div>
       <div>
-        {mainState?.posts.map((post) => (
+        {mainState?.posts?.map((post) => (
           <div key={post.id}>
             <li key={post.id}>
               <h3>{post.username}</h3>
               {post.content}
               <p>
+                {/* <button
+                  onClick={() => {checkLikes()?.includes(post._id) === true
+                      ? dislikeHandler(post._id)
+                      : likeHandler(post._id);}}
+                > */}
                 <button
                   onClick={() => {
                     checkLikes()?.includes(post._id) === true
@@ -28,12 +34,16 @@ export const Home = () => {
                       : likeHandler(post._id);
                   }}
                 >
-                  like
+                  {checkLikes()?.includes(post._id) === true
+                    ? "dislike"
+                    : "like"}
                 </button>
                 {post.likes.likeCount}
               </p>
               <p>
-                <button>Bookmark</button>
+                <button onClick={()=>{
+                  checkBookmark()?.includes(post._id)===true?removeBookmark(post._id):bookmarkAdded(post._id)
+                }}>{checkBookmark()?.includes(post._id)?"remove bookmark" :"add to bookmark"}</button>
               </p>
             </li>
           </div>

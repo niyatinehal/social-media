@@ -5,10 +5,15 @@ export const MainContext = createContext();
 
 export const MainContextProvider = ({ children }) => {
   const initialData = async () => {
-    const response = await axios.get("/api/posts");
-    mainDispatcher({ type: "getPosts", payload: response.data.posts });
-    const resUser = await axios.get("/api/users");
-    mainDispatcher({ type: "getUsers", payload: resUser.data.users });
+    try {
+      const response = await axios.get("/api/posts");
+      mainDispatcher({ type: "getPosts", payload: response.data.posts });
+      const resUser = await axios.get("/api/users");
+
+      mainDispatcher({ type: "getUsers", payload: resUser.data.users });
+    } catch (error) {
+      console.log(error);
+    }
   };
   const storedToken = localStorage.getItem("token");
 
@@ -36,15 +41,15 @@ export const MainContextProvider = ({ children }) => {
           existingUser: action.payload,
         };
       case "userDetails":
-        const user = {
-          fName: action.payload.firstName,
-          lName: action.payload.lastName,
-          username: action.payload.username,
-        };
+        // const user = {
+        //   fName: action.payload.firstName,
+        //   lName: action.payload.lastName,
+        //   username: action.payload.username,
+        // };
         return {
           ...state,
-          loggedInUser: user,
-          bookMark: action.payload.bookmark,
+          loggedInUser: action.payload,
+          // bookMark: action.payload.bookmark,
           followers: action.payload.followers,
           following: action.payload.following,
         };
@@ -54,11 +59,21 @@ export const MainContextProvider = ({ children }) => {
           ...state,
           isLoggedIn: action.payload,
         };
+      case "loggedInFalse":
+        return {
+          ...state,
+          isLoggedIn: action.payload,
+        };
       case "setToken":
         return {
           ...state,
           token: action.payload,
         };
+      case "addToBookmark":
+        return{
+          ...state,
+          bookMark:action.payload
+        }
     }
   };
 
@@ -69,7 +84,7 @@ export const MainContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <MainContext.Provider value={{ mainDispatcher, mainState }}>
+    <MainContext.Provider value={{ mainDispatcher, mainState,loggedInUser:mainState.loggedInUser }}>
       {children}
     </MainContext.Provider>
   );

@@ -1,4 +1,10 @@
-import React, { Children, createContext, useContext, useReducer } from "react";
+import React, {
+  Children,
+  createContext,
+  useContext,
+  useReducer,
+  useState,
+} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { MainContext } from "../contexts/MainContext";
@@ -9,29 +15,38 @@ export const AuthProvider = ({ children }) => {
   const { mainDispatcher, mainState } = useContext(MainContext);
   const navigate = useNavigate();
 
-  const login = async (userDeets) => {
-    console.log(userDeets);
+  const Login=(userDeets)=>{
+    const login = async () => {
     try {
       const response = await axios.post("/api/auth/login", {
         username: userDeets.username,
         password: userDeets.password,
       });
-      localStorage.setItem("token", response.data.encodedToken);
-      {
-        console.log("loginc", response.data.foundUser);
-      }
-      mainDispatcher({ type: "userDetails", payload: response.data.foundUser });
-      mainDispatcher({ type: "loggedInTrue", payload: true });
-      mainDispatcher({type:"setToken",payload:response.data.encodedToken})
 
+      localStorage.setItem("token", response.data.encodedToken);
       if (response.status === 200) {
-        console.log("after login", mainState.loggedInUser);
+        console.log("user logged;",response.data.foundUser)
+        mainDispatcher({
+          type: "userDetails",
+          payload: response.data.foundUser,
+        });
+        mainDispatcher({ type: "loggedInTrue", payload: true });
+        mainDispatcher({
+          type: "setToken",
+          payload: response.data.encodedToken,
+        });
+
         navigate("/");
       }
     } catch (error) {
+      mainDispatcher({ type: "LoggedInFalse", payload: false });
       console.log("login Error", error);
     }
   };
+  login();
+  }
+
+  
 
   const signup = async (userDetails) => {
     try {
@@ -41,23 +56,40 @@ export const AuthProvider = ({ children }) => {
         username: userDetails?.username,
         password: userDetails?.password,
       });
-      localStorage.setItem("token", response.data.encodedToken);
 
       if (response.status === 201) {
-        console.log("after signup", mainState.signedInUser);
-        mainDispatcher({type:"userDetails",payload:response.data.createdUser});
-        console.log(mainState.loggedInUser);
-        <p>welcome</p>;
+        localStorage.setItem("token", response.data.encodedToken);
+
+        // mainDispatcher({ type: "isLoggedIn", payload: true }); //can be removed
+        // mainDispatcher({
+        //   type: "setToken",
+        //   payload: response.data.encodedToken,
+        // }); //check if this can be removed
+
+        // mainDispatcher({
+        //   type: "userDetails",
+        //   payload: response.data.createdUser,
+        // });
         navigate("/login-page");
       }
     } catch (error) {
       console.log("sign up error", error);
     }
-  };
+  }; 
+
+
+  // const logout = (e) => {
+  //   localStorage.removeItem("token");
+  //   mainDispatcher({ type: "loggedInFalse", payload: false });
+  //   mainDispatcher({ type: "setToken", payload: "" });
+  //   mainDispatcher({ type: "setUser", payload: {} });
+  //   console.log("loggedOut")
+  //   navigate("/");
+  // };
 
   return (
     <div>
-      <AuthContext.Provider value={{ login, signup }}>
+      <AuthContext.Provider value={{ Login, signup }}>
         {children}
       </AuthContext.Provider>
     </div>

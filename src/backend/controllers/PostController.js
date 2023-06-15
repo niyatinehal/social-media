@@ -154,9 +154,7 @@ export const editPostHandler = function (schema, request) {
  * */
 
 export const likePostHandler = function (schema, request) {
-  console.log(request)
   const user = requiresAuth.call(this, request);
-  console.log("USER",user)
   try {
     if (!user) {
       return new Response(
@@ -171,7 +169,6 @@ export const likePostHandler = function (schema, request) {
     }
     const postId = request.params.postId;
     const post = schema.posts.findBy({ _id: postId }).attrs;
-    console.log("post",post,postId)
     if (post.likes.likedBy.some((currUser) => currUser._id === user._id)) {
       return new Response(
         400,
@@ -218,7 +215,9 @@ export const dislikePostHandler = function (schema, request) {
     }
     const postId = request.params.postId;
     let post = schema.posts.findBy({ _id: postId }).attrs;
+    
     if (post.likes.likeCount === 0) {
+      console.log("sialike",post.likes.likeCount)
       return new Response(
         400,
         {},

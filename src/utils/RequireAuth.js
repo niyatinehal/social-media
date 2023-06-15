@@ -6,9 +6,9 @@ export const RequireAuth = ({children}) => {
     const {mainState}=useContext(MainContext);
     const location=useLocation();
     console.log(localStorage.getItem("token")?"token there" : "token lost")
-    console.log(mainState.isLoggedIn)
+    console.log(mainState?.isLoggedIn)
 
-  return mainState.isLoggedIn ? (children):
+  return mainState?.isLoggedIn ? (children):
   <>
     <Navigate to="/signup-page" state={{from:location}}/>
   </>

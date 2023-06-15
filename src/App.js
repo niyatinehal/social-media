@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { MainContext } from "./services/contexts/MainContext";
 
 function App() {
-  const{mainState}=useContext(MainContext)
+  const { mainState } = useContext(MainContext);
   return (
     <div className="App">
       <Navbar />
@@ -31,16 +31,25 @@ function App() {
           }
         />
         <Route path="/signup-page" element={<SignupPage />} />
-        <Route path="/" element={<RequireAuth isLoggedIn={mainState.isLoggedIn}>
-              <Home />
+        <Route path="/" element={<Home />} />
+        <Route path="/bookmark" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
+              <Bookmark />
             </RequireAuth>} />
-        <Route path="/bookmark" element={<Bookmark />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/liked" element={<LikedPage />} />
+        <Route path="/explore" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
+              <Explore />
+            </RequireAuth>} />
+        <Route path="/liked" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
+              <LikedPage />
+            </RequireAuth>} />
         <Route path="/login-page" element={<LoginPage />} />
-        <Route path="/user-profile" element={<RequireAuth isLoggedIn={mainState.isLoggedIn}>
-              <UserProfile/>
-            </RequireAuth>}/>
+        <Route
+          path="/user-profile"
+          element={
+            <RequireAuth isLoggedIn={mainState?.isLoggedIn}>
+              <UserProfile />
+            </RequireAuth>
+          }
+        />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>
