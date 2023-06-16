@@ -37,13 +37,13 @@ export const LoginPage = () => {
       <div>
         <h1>K-Verse</h1>
         <h2>Login</h2>
-        <form>
+        <>
           <div>
             <p>Username: </p>
             <input
               id="username"
               type="text"
-              required
+              
               //value={userData.username}
               onChange={(e) =>userData.username=e.target.value}
             />
@@ -51,8 +51,8 @@ export const LoginPage = () => {
             <input
               id="password"
               type="password"
-              required
-              // value={userData?.password}
+              
+             //value={userData?.password}
               onChange={(e) =>userData.password=e.target.value}
             />
             <div>
@@ -62,7 +62,7 @@ export const LoginPage = () => {
               <button onClick={(e)=>guestLogin(e)}>Guest Login</button>
             </div>
           </div>
-        </form>
+        </>
       </div>
     </div>
   );

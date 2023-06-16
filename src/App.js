@@ -3,7 +3,7 @@ import "./App.css";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import { SignupPage } from "./Pages/SignupPage/SignupPage";
-import { Navbar } from "./components/Navbar";
+import { SideBar } from "./components/SideBar/Sidebar";
 import { Home } from "./Pages/HomePage/Home";
 import { Bookmark } from "./Pages/BookmarkPage/Bookmark";
 import { Explore } from "./Pages/ExplorePage/Explore";
@@ -14,12 +14,14 @@ import Mockman from "mockman-js";
 import { RequireAuth } from "./utils/RequireAuth";
 import { useContext } from "react";
 import { MainContext } from "./services/contexts/MainContext";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
   const { mainState } = useContext(MainContext);
   return (
     <div className="App">
-      <Navbar />
+    <Navbar/>
+      <SideBar />
 
       <Routes>
         <Route

@@ -44,7 +44,7 @@ export const SignupPage = () => {
       <div>
         <h1>K-Verse</h1>
         <h2>Sign-up</h2>
-        <form onSubmit={(e) => signupHandler(e)}>
+        <>
           <p>First Name</p>
           <input
             id="firstName"
@@ -104,9 +104,9 @@ export const SignupPage = () => {
             }
           />
           <div>
-            <button type="submit">SignUp!</button>
+            <button onClick={(e) => signupHandler(e)}>SignUp!</button>
           </div>
-        </form>
+        </>
         <div>
           <button onClick={()=>navigate("/login-page")}>Already a User</button>
         </div>

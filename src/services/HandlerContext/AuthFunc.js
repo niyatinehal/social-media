@@ -66,10 +66,10 @@ export const AuthProvider = ({ children }) => {
         //   payload: response.data.encodedToken,
         // }); //check if this can be removed
 
-        // mainDispatcher({
-        //   type: "userDetails",
-        //   payload: response.data.createdUser,
-        // });
+        mainDispatcher({
+          type: "userDetails",
+          payload: response.data.createdUser,
+        });
         navigate("/login-page");
       }
     } catch (error) {
