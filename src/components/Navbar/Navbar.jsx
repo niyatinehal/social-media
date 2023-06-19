@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../navbar.css"
+import { MainContext } from "../../services/contexts/MainContext";
+import { AuthContext } from "../../services/HandlerContext/AuthFunc";
 export const Navbar = () => {
+    const{logout,signup}=useContext(AuthContext)
   return (
-    <div class="navbar">
-      <div class="navbar-logo">Logo</div>
-      <div class="navbar-search">
+    <div className="navbar">
+      <div className="navbar-logo">Logo</div>
+      <div className="navbar-search">
         <input type="text" placeholder="Search" />
       </div>
-      <div class="navbar-logout">Logout</div>
+      <button className="navbar-logout" onClick={logout}>Logout</button>
     </div>
   );
 };

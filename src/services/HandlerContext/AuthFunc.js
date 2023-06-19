@@ -12,17 +12,18 @@ import { MainContext } from "../contexts/MainContext";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const { mainDispatcher, mainState } = useContext(MainContext);
+  const { mainDispatcher} = useContext(MainContext);
   const navigate = useNavigate();
 
   const Login=(userDeets)=>{
+    console.log(userDeets)
     const login = async () => {
     try {
       const response = await axios.post("/api/auth/login", {
         username: userDeets.username,
         password: userDeets.password,
       });
-
+ 
       localStorage.setItem("token", response.data.encodedToken);
       if (response.status === 200) {
         console.log("user logged;",response.data.foundUser)
@@ -49,6 +50,7 @@ export const AuthProvider = ({ children }) => {
   
 
   const signup = async (userDetails) => {
+    console.log(userDetails)
     try {
       const response = await axios.post("/api/auth/signup", {
         firstName: userDetails?.fname,
@@ -78,18 +80,19 @@ export const AuthProvider = ({ children }) => {
   }; 
 
 
-  // const logout = (e) => {
-  //   localStorage.removeItem("token");
-  //   mainDispatcher({ type: "loggedInFalse", payload: false });
-  //   mainDispatcher({ type: "setToken", payload: "" });
-  //   mainDispatcher({ type: "setUser", payload: {} });
-  //   console.log("loggedOut")
-  //   navigate("/");
-  // };
+  const logout = (e) => {
+     localStorage.removeItem("token");
+     localStorage.removeItem("loggedInUser")
+    mainDispatcher({ type: "loggedInFalse", payload: false });
+     mainDispatcher({ type: "setToken", payload: "" });
+    //  mainDispatcher({ type: "setUser", payload: {} });
+    console.log("loggedOut")
+    // navigate("/");
+  };
 
   return (
     <div>
-      <AuthContext.Provider value={{ Login, signup }}>
+      <AuthContext.Provider value={{ Login, signup,logout }}>
         {children}
       </AuthContext.Provider>
     </div>

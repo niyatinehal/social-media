@@ -16,11 +16,14 @@ export const MainContextProvider = ({ children }) => {
     }
   };
   const storedToken = localStorage.getItem("token");
+  const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   const mainData = {
     existingUser: [],
     isLoggedIn: storedToken ? true : false,
-    loggedInUser: { fName: "", lName: "", username: "" },
+    loggedInUser: storedUser
+      ? storedUser
+      : { fName: "", lName: "", username: "" },
     bookMark: [],
     posts: [],
     followers: [],
@@ -82,9 +85,14 @@ export const MainContextProvider = ({ children }) => {
   useEffect(() => {
     initialData();
   }, []);
+  console.log(mainState?.loggedInUser)
+
+    useEffect(() => {
+    localStorage.setItem("loggedInUser", JSON.stringify(mainState?.loggedInUser));
+  }, [mainState?.loggedInUser]);
 
   return (
-    <MainContext.Provider value={{ mainDispatcher, mainState,loggedInUser:mainState.loggedInUser }}>
+    <MainContext.Provider value={{ mainDispatcher, mainState,loggedInUser:mainState?.loggedInUser }}>
       {children}
     </MainContext.Provider>
   );

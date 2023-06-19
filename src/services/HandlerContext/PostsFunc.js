@@ -89,7 +89,7 @@ export const PostsContextProvider = ({ children }) => {
       const response = await axios.post(`/api/users/bookmark/${postId}`, empt, {
         headers: {
           authorization: encodedToken,
-        },
+        }, 
       });
       console.log("bookmark added:", response.data.bookmarks);
       mainDispatcher({type:"addToBookmark",payload:response.data.bookmarks})

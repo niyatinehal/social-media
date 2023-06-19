@@ -17,18 +17,19 @@ export const SignupPage = () => {
     password: "",
     confirmPassword: "",
   }); 
-
+console.log(userDeets)
   const signupHandler = (e) => {
      e.preventDefault();
      
     const Details = {
-      fName: e.target.firstName.value,
-      lName: e.target.lastName.value,
-      username: e.target.username.value,
-      email: e.target.email.value,
-      password: e.target.password.value,
-      confirmPassword: e.target.confirmPassword.value,
+      fName: e.target?.firstName?.value,
+      lName: e.target?.lastName?.value,
+      username: e.target?.username?.value,
+      email: e.target?.email?.value,
+      password: e.target?.password?.value,
+      confirmPassword: e.target?.confirmPassword?.value,
     };
+    console.log("details",Details)
 
     if (Details.password !== Details.confirmPassword) {
       console.log("passwords should be same");
@@ -44,7 +45,7 @@ export const SignupPage = () => {
       <div>
         <h1>K-Verse</h1>
         <h2>Sign-up</h2>
-        <>
+        <form onSubmit={(e)=>signupHandler(e)}>
           <p>First Name</p>
           <input
             id="firstName"
@@ -104,9 +105,9 @@ export const SignupPage = () => {
             }
           />
           <div>
-            <button onClick={(e) => signupHandler(e)}>SignUp!</button>
+            <button type="submit">SignUp!</button>
           </div>
-        </>
+        </form>
         <div>
           <button onClick={()=>navigate("/login-page")}>Already a User</button>
         </div>

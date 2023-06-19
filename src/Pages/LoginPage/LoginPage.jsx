@@ -11,8 +11,8 @@ export const LoginPage = () => {
   const userData={username:"",password:''}
 
   const guestUser = {
-    username: "adarshbalika",
-    password: "adarshBalika123",
+    username: "adarshbalak",
+    password: "adarshBalaki123",
   };
 
   const loginHandler = (e) => {
