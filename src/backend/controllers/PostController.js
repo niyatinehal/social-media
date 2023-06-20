@@ -109,6 +109,7 @@ export const createPostHandler = function (schema, request) {
  * body contains { postData }
  **/
 export const editPostHandler = function (schema, request) {
+  console.log(schema,request);
   const user = requiresAuth.call(this, request);
   try {
     if (!user) {

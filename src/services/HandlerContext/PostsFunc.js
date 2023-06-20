@@ -186,6 +186,7 @@ export const PostsContextProvider = ({ children }) => {
   //continue with edit
 
   const edit = async (post) => {
+    console.log("edit contains:",post)
     try {
       const response = await axios.post(
         `/api/posts/edit/${post._id}`,
@@ -205,13 +206,14 @@ export const PostsContextProvider = ({ children }) => {
     }
   };
 
-  const editPost = async (editpost) => {
+  const editPost = async (editPost) => {
+    console.log("EDITED POST: ",editPost)
     try {
       const editedPost = await uploadImg(editPost);
       console.log("editedPost: ",editedPost);
       const editedResult = await edit(editedPost);
       console.log("editedResult:" ,editedResult);
-      mainDispatcher({ type: "getPosts", payload: editedPost });
+      mainDispatcher({ type: "getPosts", payload: editedResult });
     } catch (error) {
       console.log(error);
     }

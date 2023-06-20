@@ -16,15 +16,17 @@ export const Home = () => {
     editPost
   } = useContext(PostContext);
 
-  const [editDetails, setDetails] = useState();
+  const [editDetails, setDetails] = useState("");
   const [editImage, setImage] = useState();
   const [editObject, setObject] = useState({});
   const [show, setShow] = useState(false);
 
-  const postCreate = [...mainState?.posts].filter(
+
+  const postCreate = [...mainState.posts].filter(
     (post) => post.username === loggedInUser.username
   );
-  console.log([...mainState?.posts].filter((post)=>post.username==="tonyStark"))
+  console.log([...mainState.posts])
+  
   //add postFOllow
 
   const postData = [...postCreate];
@@ -39,8 +41,8 @@ export const Home = () => {
 
   const saveEditPost = () => {
     const edits = { ...editObject, img: editImage, content: editDetails };
-    console.log(editPost(edits));
-    // editPost(edits);
+    setShow(!show)
+     editPost(edits);
 
   };
   return (
