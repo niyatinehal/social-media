@@ -34,7 +34,7 @@ export const MainContextProvider = ({ children }) => {
   const mainReducer = (state, action) => {
     switch (action.type) {
       case "getPosts":
-        return {
+        return { 
           ...state,
           posts: action.payload,
         };

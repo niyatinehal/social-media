@@ -6,99 +6,97 @@ import { formatDate } from "../utils/authUtils";
  * You can add default posts of your wish with different attributes
  * */
 
-export const posts = [
+export const posts =  [
   {
-    _id: '406acf0d-a683-4c80-a42d-92f0c6544dca',
+    _id: uuid(),
     content:
-      'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident',
-    likes: {
-      likeCount: 2,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: 'adarshbalak',
-    createdAt: '2022-05-15T12:00:28+05:30',
-    updatedAt: formatDate(),
-  },
-  {
-    _id: 'b8574c86-df7a-46ed-8bc2-69dd4f99307b',
-    content: 'Hey what"s app guy"s what"s going on?',
-    likes: {
-      likeCount: 4,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: 'anujkumar',
-    createdAt: '2022-01-10T10:55:06+05:30',
-    updatedAt: formatDate(),
-  },
-  {
-    _id: 'c789564c86-df7a-46ed-8bc2-69dd4f99307b',
-    content: 'I am done with the social media project can please provide some valuable feebback',
-    likes: {
-      likeCount: 3,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: 'adarshbalak',
-    createdAt: '2022-05-21T10:55:06+05:30',
-    updatedAt: formatDate(),
-  },
-  {
-    _id: 'r8fg5659641-d787a-46ed-8bc2-69dd4307b',
-    content:
-      'Spread love everywhere you go. Let no one ever come to you without leaving happier. -Mother Teresa',
+      "Demon slayer episode Kyojuro Rengoku vs Akaza was stunning and emotional fight",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    comments: [],
-    username: 'hrishi11',
-    createdAt: '2021-10-21T10:55:06+05:30',
+    firstName:"Tony",
+    username: "tonyStark",
+    createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/reng_vs_akaza.webp"
+
   },
   {
-    _id: '99874gyu-4545-89-8bc2-69dd4307b',
-    content: 'awake at 3AM | tweeting stuff mostly related to code | learning @neogcamp🚀',
+    _id: uuid(),
+    content:
+      "Rewatching battle between naruto vs pain, Naruto makes an entrance into the Hidden Leaf Village, but doesn’t recognize his surroundings. Naruto is unable to sense the Chakra of many beloved to him, including his teacher Kakashi Hatake.",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    comments: [],
-    username: 'hrishi11',
-    createdAt: '2021-10-21T10:55:06+05:30',
+    firstName:"Naruto",
+    username: "narutoUzumaki",
+    createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/naruto_vs_pain.webp"
   },
   {
-    _id: '7845hyuff-8888-45ki-8bc2-69dd4307b',
+    _id: uuid(),
     content:
-      'Presenting my new React Project Socially, A social Media app made using React, JavaScript, Redux, Tailwind CSS',
+      "Waiting for Attack on Titan Final episode",
     likes: {
-      likeCount: 1,
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
+      
     },
-    comments: [],
-    username: 'rohanB',
-    createdAt: '2021-10-21T10:55:06+05:30',
+    firstName:"Kakshi",
+    username: "kakshiOfTheSharigan",
+    createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/eren.webp"
   },
   {
-    _id: 'eee4456-666-788vfghg-8bc2-69dd4307b',
-    content: 'Wrote 2 blogs for NeoBlogging Marathon at @neogcamp ',
+    _id: uuid(),
+    content:
+      "Hope soon vegeta will get ultra instinct",
     likes: {
-      likeCount: 1,
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    comments: [],
-    username: 'rohanB',
-    createdAt: '2021-10-21T10:55:06+05:30',
+    firstName:"Tanjiro",
+    username: "TanjiroTheSunBreather",
+    createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/vegeta.webp"
+  },
+  {
+    _id: uuid(),
+    content:
+      "Waiting for Satoru Gojo to unleash his full power",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    firstName:"Vegeta",
+    username: "PrinceVegeta",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:"https://github.com/Nithin3008/social_media_proj/blob/master/public/images/Gojo.jpg?raw=true"
   },
 ];

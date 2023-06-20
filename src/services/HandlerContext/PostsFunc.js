@@ -69,7 +69,7 @@ export const PostsContextProvider = ({ children }) => {
     return check;
   };
 
-  //bookmark
+  //bookmark needs to be debuged
 
   const initialBookmark = async () => {
     try {
@@ -89,32 +89,135 @@ export const PostsContextProvider = ({ children }) => {
       const response = await axios.post(`/api/users/bookmark/${postId}`, empt, {
         headers: {
           authorization: encodedToken,
-        }, 
+        },
       });
       console.log("bookmark added:", response.data.bookmarks);
-      mainDispatcher({type:"addToBookmark",payload:response.data.bookmarks})
+      mainDispatcher({
+        type: "addToBookmark",
+        payload: response.data.bookmarks,
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
-  const checkBookmark=()=>{
-    return mainState.bookMark?.map((bookmark)=>bookmark._id)
-  }
+  const checkBookmark = () => {
+    return mainState.bookMark?.map((bookmark) => bookmark._id);
+  };
 
-  const removeBookmark=async(postId)=>{
-try {
-  const response=await axios.post(`/api/users/remove-bookmark/${postId}`,empt,{
-    headers:{
-      authorization:encodedToken
+  const removeBookmark = async (postId) => {
+    try {
+      const response = await axios.post(
+        `/api/users/remove-bookmark/${postId}`,
+        empt,
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      console.log("remove bookmark", response.data.bookmarks);
+      mainDispatcher({
+        type: "addToBookmark",
+        payload: response.data.bookmarks,
+      });
+    } catch (error) {
+      console.log(error);
     }
-  })
-  console.log("remove bookmark",response.data.bookmarks);
-  mainDispatcher({type:"addToBookmark",payload:response.data.bookmarks})
-} catch (error) {
-  console.log(error)
-}
-  }
+  };
+
+  //create a post
+  const uploadImg = async (post) => {
+    try {
+      const file = post.img;
+      console.log(file);
+      const present_key = "social_media_proj";
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", present_key);
+      if (post.img) {
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/king-cloud/image/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+        const x = await res.json();
+        console.log(x.url);
+        post.img = x.url;
+      } else {
+        return { ...post, img: null };
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    return post;
+  };
+
+  const newPost = async (post) => {
+    try {
+      const response = await axios.post(
+        "/api/posts",
+        {
+          postData: post,
+        },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (response.status === 201) {
+        return response.data.posts;
+      }
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const uploadNewPost = async (post) => {
+    const postResult = await uploadImg(post);
+    console.log(postResult);
+    const newPostResult = await newPost(postResult);
+    mainDispatcher({ type: "getPosts", payload: newPostResult });
+  };
+  //continue with edit
+
+  const edit = async (post) => {
+    try {
+      const response = await axios.post(
+        `/api/posts/edit/${post._id}`,
+        { postData: post },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if ((response.status === 201)) {
+        return response.data.posts;
+      }
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const editPost = async (editpost) => {
+    try {
+      const editedPost = await uploadImg(editPost);
+      console.log("editedPost: ",editedPost);
+      const editedResult = await edit(editedPost);
+      console.log("editedResult:" ,editedResult);
+      mainDispatcher({ type: "getPosts", payload: editedPost });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //continue with delete post
 
   return (
     <PostContext.Provider
@@ -125,7 +228,10 @@ try {
         checkLikes,
         initialBookmark,
         bookmarkAdded,
-        checkBookmark,removeBookmark
+        checkBookmark,
+        removeBookmark,
+        uploadNewPost,
+        editPost,
       }}
     >
       {children}

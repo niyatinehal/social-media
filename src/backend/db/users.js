@@ -9,10 +9,10 @@ import { formatDate } from "../utils/authUtils";
 export const users = [
   {
     _id: '054c1f2b-dcf8-439b-86e7-820d4ac416fc',
-    firstName: 'Adarsh',
-    lastName: 'Balak',
-    username: 'adarshbalak',
-    password: 'adarshBalaki123',
+    firstName: 'Tony',
+    lastName: 'Stark',
+    username: 'tonyStark',
+    password: 'TonyStark123',
     bookmarks: [],
     bio: 'Aspring FullStack Developer',
     website: 'https://adarshbalak.netlify.app',
