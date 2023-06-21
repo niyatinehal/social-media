@@ -1,0 +1,20 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.home-content {
+  position: relative;
+  top: 3rem;
+  left: 3rem;
+}
+.home-suggestions{
+    position: relative;
+    top: 3rem;
+    left:8rem
+}
+
+@media screen and (max-width: 600px){
+    
+}

@@ -20,8 +20,9 @@ function App() {
   const { mainState } = useContext(MainContext);
   return (
     <div className="App">
+
     <Navbar/>
-      <SideBar />
+     {/* <SideBar /> */}
 
       <Routes>
         <Route

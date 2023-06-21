@@ -78,7 +78,8 @@ export const PostsContextProvider = ({ children }) => {
           authorization: encodedToken,
         },
       });
-      console.log("bookMark Init:", response.data);
+      console.log("bookMark Init:", response.data.bookmarks);
+      mainDispatcher({type:"addToBookmark", payload:response.data.bookmarks})
     } catch (error) {
       console.log(error);
     }
@@ -92,9 +93,11 @@ export const PostsContextProvider = ({ children }) => {
         },
       });
       console.log("bookmark added:", response.data.bookmarks);
+      const books=response.data.bookmarks;
+      const bookMarkPosts=mainState.posts.filter((post)=>books.includes(post._id));
       mainDispatcher({
         type: "addToBookmark",
-        payload: response.data.bookmarks,
+        payload: bookMarkPosts,
       });
     } catch (error) {
       console.log(error);
@@ -183,7 +186,7 @@ export const PostsContextProvider = ({ children }) => {
     const newPostResult = await newPost(postResult);
     mainDispatcher({ type: "getPosts", payload: newPostResult });
   };
-  //continue with edit
+ 
 
   const edit = async (post) => {
     console.log("edit contains:",post)
@@ -219,7 +222,21 @@ export const PostsContextProvider = ({ children }) => {
     }
   };
 
-  //continue with delete post
+
+  const deletePost=async(postId)=>{
+    try {
+      const response=await axios.delete(`/api/posts/`+postId,{
+        headers:{
+          aurthorization:encodedToken,
+        }
+      })
+      if(response.status!==200){
+        mainDispatcher({type:"getPosts",payload:response.data.posts})
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <PostContext.Provider
@@ -234,6 +251,7 @@ export const PostsContextProvider = ({ children }) => {
         removeBookmark,
         uploadNewPost,
         editPost,
+        deletePost
       }}
     >
       {children}

@@ -85,7 +85,6 @@ export const MainContextProvider = ({ children }) => {
   useEffect(() => {
     initialData();
   }, []);
-  console.log(mainState?.loggedInUser)
 
     useEffect(() => {
     localStorage.setItem("loggedInUser", JSON.stringify(mainState?.loggedInUser));
