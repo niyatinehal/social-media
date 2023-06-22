@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import { MainContext } from "../../services/contexts/MainContext";
 import { PostContext } from "../../services/HandlerContext/PostsFunc";
 import { SideBar } from "../../components/SideBar/Sidebar";
-import "./Home.css";
+// import "./Home.css";
+import { FollowContext } from "../../services/HandlerContext/FollowFunc";
+import { Suggestions } from "../../components/Suggestions/Suggestions";
 
 export const Home = () => {
-  const { mainState, loggedInUser } = useContext(MainContext);
+  const { mainState, loggedInUser, mainDispatcher } = useContext(MainContext);
   const {
     likeHandler,
     dislikeHandler,
@@ -18,21 +20,26 @@ export const Home = () => {
     editPost,
     deletePost,
   } = useContext(PostContext);
+  
+  const{setFollowing}=useContext(FollowContext);
+
 
   const [editDetails, setDetails] = useState("");
   const [editImage, setImage] = useState();
   const [editObject, setObject] = useState({});
   const [show, setShow] = useState(false);
+  const [comShow, setComShow] = useState(false);
+  const [commentContent, setCommentContent] = useState("");
 
   const postCreate = [...mainState.posts].filter(
     (post) => post.username === loggedInUser.username
   );
 
-  //add postFOllow
+  // postFOllow
   const postFollow = [...mainState.posts].filter((post) =>
     mainState.following.find((user) => user === post.username)
   );
-
+  //addPost
   const postData = [...postCreate];
   const postDetails = {
     img: "",
@@ -43,6 +50,15 @@ export const Home = () => {
     console.log(postDetails);
   };
 
+  //addComment
+  const handleComment = (postId) => {
+    const comment = {
+      content: commentContent,
+      author: loggedInUser.username,
+    };
+    mainDispatcher({ type: "addComments", payload: { comment, postId } });
+    setCommentContent("");
+  };
   const saveEditPost = () => {
     const edits = { ...editObject, img: editImage, content: editDetails };
     setShow(!show);
@@ -106,12 +122,7 @@ export const Home = () => {
                     </div>
                   </div>
                 </div>
-                <p>
-                  {/* <button
-                  onClick={() => {checkLikes()?.includes(post._id) === true
-                      ? dislikeHandler(post._id)
-                      : likeHandler(post._id);}}
-                > */}
+                <div>
                   <button
                     onClick={() => {
                       checkLikes()?.includes(post._id) === true
@@ -122,10 +133,8 @@ export const Home = () => {
                     {checkLikes()?.includes(post._id) === true
                       ? "dislike"
                       : "like"}
-                  </button>
-                  {post.likes.likeCount}
-                </p>
-                <p>
+                  </button>{" "}
+                  ({post.likes.likeCount}){" "}
                   <button
                     onClick={() => {
                       checkBookmark()?.includes(post._id) === true
@@ -137,22 +146,24 @@ export const Home = () => {
                       ? "remove bookmark"
                       : "add to bookmark"}
                   </button>
-                </p>
+                </div>
               </li>
             </div>
           ))}
         </div>
       </div>
-      <div className="home-suggestions">
+      <Suggestions/>
+      {/* <div className="home-suggestions">
         <h3>who to follow?</h3>
         {mainState?.existingUser?.map((user) => (
           <div key={user.id}>
             <li>
               <strong>{user.username}</strong>
+              <button onClick={()=>setFollowing(user._id)}>Follow</button>
             </li>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

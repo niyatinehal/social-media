@@ -225,11 +225,12 @@ export const PostsContextProvider = ({ children }) => {
 
   const deletePost=async(postId)=>{
     try {
-      const response=await axios.delete(`/api/posts/`+postId,{
+      const response=await axios.delete(`/api/posts/${postId}`,{
         headers:{
           aurthorization:encodedToken,
         }
       })
+      console.log(response)
       if(response.status!==200){
         mainDispatcher({type:"getPosts",payload:response.data.posts})
       }

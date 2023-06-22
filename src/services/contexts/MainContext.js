@@ -77,6 +77,25 @@ export const MainContextProvider = ({ children }) => {
           ...state,
           bookMark:action.payload
         }
+      case "addComments": 
+        const{postId,comment}=action.payload;
+        const updateComment=state.posts.map((post)=>{
+          if(post.id===postId){
+            return {
+              ...post ,comments:[...post.comments,comment],
+            }
+          }
+          else{
+            return post;
+          }
+        });
+        return {
+          ...state,posts:updateComment
+        }
+      case "addFollowing":
+        return{
+          ...state,following:action.payload
+        }
     }
   };
 
