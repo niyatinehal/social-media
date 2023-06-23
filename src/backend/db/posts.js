@@ -8,7 +8,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts =  [
   {
-    _id: uuid(),
+    _id: "R8S19MC",
     content:
       "Demon slayer episode Kyojuro Rengoku vs Akaza was stunning and emotional fight",
     likes: {
@@ -27,7 +27,7 @@ export const posts =  [
 
   },
   {
-    _id: uuid(),
+    _id: "B2V76XK",
     content:
       "Rewatching battle between naruto vs pain, Naruto makes an entrance into the Hidden Leaf Village, but doesn’t recognize his surroundings. Naruto is unable to sense the Chakra of many beloved to him, including his teacher Kakashi Hatake.",
     likes: {
@@ -45,7 +45,7 @@ export const posts =  [
     img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/naruto_vs_pain.webp"
   },
   {
-    _id: uuid(),
+    _id: "F5D83NP",
     content:
       "Waiting for Attack on Titan Final episode",
     likes: {
@@ -64,7 +64,7 @@ export const posts =  [
     img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/eren.webp"
   },
   {
-    _id: uuid(),
+    _id: "H6Q42JT",
     content:
       "Hope soon vegeta will get ultra instinct",
     likes: {
@@ -82,7 +82,7 @@ export const posts =  [
     img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/vegeta.webp"
   },
   {
-    _id: uuid(),
+    _id: "W1Z95YL",
     content:
       "Waiting for Satoru Gojo to unleash his full power",
     likes: {

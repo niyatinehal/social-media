@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { MainContext } from "../../services/contexts/MainContext";
 import { PostContext } from "../../services/HandlerContext/PostsFunc";
+import { Suggestions } from "../../components/Suggestions/Suggestions";
 
 export const Bookmark = () => {
   const { mainState } = useContext(MainContext);
   const{removeBookmark,checkBookmark,likeHandler,
     dislikeHandler,
-    checkLikes,}=useContext(PostContext)
-  console.log(mainState.bookMark);
+    checkLikes,}=useContext(PostContext);
+
+    const bookmarkData=[...bookmarkData]
+  
   const removeHandler=(postId)=>{
     if(checkBookmark().includes(postId)){
       removeBookmark(postId)
@@ -16,9 +19,9 @@ export const Bookmark = () => {
   return (
     <div>
       <div>
-        {mainState.bookMark ? (
+        {bookmarkData ? (
           <div>
-            {mainState.bookMark.map((bmark) => (
+            {bookmarkData.map((bmark) => (
               <li>
                 <h3>{bmark.username}</h3>
                 <p>{bmark.content}</p>
@@ -39,6 +42,7 @@ export const Bookmark = () => {
           </div>
         )}
       </div>
+      <Suggestions/>
     </div>
   );
 };

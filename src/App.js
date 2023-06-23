@@ -15,6 +15,8 @@ import { RequireAuth } from "./utils/RequireAuth";
 import { useContext } from "react";
 import { MainContext } from "./services/contexts/MainContext";
 import { Navbar } from "./components/Navbar/Navbar";
+import { PostDetails } from "./Pages/PostDetails/PostDetails";
+import { ProfileDetails } from "./Pages/ProfileDetails/ProfileDetails";
 
 function App() {
   const { mainState } = useContext(MainContext);
@@ -53,6 +55,8 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/post-details/:postId" element={<PostDetails/>}/>
+        <Route path="/profile-details/:profileId" element={<ProfileDetails/>} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>
