@@ -1,0 +1,27 @@
+.suggestions-container {
+  width: 100%;
+}
+
+.suggestions-box {
+  width: 100%;
+  padding: 1rem;
+  border-width: 1px;
+  border-radius: 0.25rem;
+}
+
+.suggestions-name {
+  font-weight: bold;
+}
+
+.suggestions-button {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .suggestions-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
