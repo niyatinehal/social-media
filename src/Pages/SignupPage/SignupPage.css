@@ -1,0 +1,40 @@
+.signup-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  background-color:blue;
+  width:95%;
+  padding:5rem;
+}
+
+.signup-form {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  margin-right: 1rem;
+}
+
+.signup-input {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.signup-button {
+  width: 100%;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 480px) {
+  .signup-form {
+    width: 90%;
+  }
+}

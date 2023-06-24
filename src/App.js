@@ -35,8 +35,8 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/signup-page" element={<SignupPage />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<SignupPage />} />
         <Route path="/bookmark" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
               <Bookmark />
             </RequireAuth>} />

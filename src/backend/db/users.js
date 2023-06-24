@@ -17,7 +17,7 @@ export const users = [
     bio: "Aspring FullStack Developer",
     website: "https://adarshbalak.netlify.app",
     avatar:
-      "https://res.cloudinary.com/anujy0510/image/upload/v1652788469/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513_ac8h4f.jpg",
+      "https://avatars.dicebear.com/api/avataaars/avatar1.svg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -31,7 +31,7 @@ export const users = [
     bio: "Aspring FrontEnd Developer",
     website: "https://anujkumar.netlify.app/",
     avatar:
-      "https://res.cloudinary.com/anujy0510/image/upload/v1652788722/Profile-pic_tuz4io.png",
+      "https://avatars.dicebear.com/api/avataaars/avatar2.svg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -44,7 +44,7 @@ export const users = [
     bio: "Something",
     website: "https://hrishib.netlify.app/",
     avatar:
-      "https://res.cloudinary.com/anujy0510/image/upload/v1653386642/151260930_420560685681454_256005377522807930_n.jpg_s4tt5l.jpg",
+      "https://avatars.dicebear.com/api/avataaars/avatar3.svg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -57,7 +57,7 @@ export const users = [
     bio: "I am open to marry please DM me",
     website: "https://rohanspage.netlify.app/",
     avatar:
-      "https://res.cloudinary.com/anujy0510/image/upload/v1653386885/125404086_664416567582674_1469284624591573101_n.jpg_g0nqyn.jpg",
+      "https://avatars.dicebear.com/api/avataaars/avatar4.svg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -70,7 +70,7 @@ export const users = [
     bio: "Something",
     website: "https://johndoe.netlify.app/",
     avatar:
-      "https://res.cloudinary.com/anujy0510/image/upload/v1652872171/pexels-photo-1516680_xtfewh.jpg",
+      "https://avatars.dicebear.com/api/avataaars/avatar5.svg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

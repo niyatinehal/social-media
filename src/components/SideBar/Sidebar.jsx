@@ -5,7 +5,7 @@ export const SideBar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-nav">
-        <NavLink className="sidebar-link" to="/">
+        <NavLink className="sidebar-link" to="/home">
           Home
         </NavLink>
         <NavLink className="sidebar-link" to="/explore">

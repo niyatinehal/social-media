@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
           payload: response.data.encodedToken,
         });
 
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       mainDispatcher({ type: "LoggedInFalse", payload: false });

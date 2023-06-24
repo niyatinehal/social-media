@@ -23,7 +23,7 @@ export const posts =  [
     comment:[],
     following:[],
     followers:[],
-    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/reng_vs_akaza.webp"
+    img:"https://source.unsplash.com/random/500x500"
 
   },
   {
@@ -42,7 +42,7 @@ export const posts =  [
     comment:[],
     following:[],
     followers:[],
-    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/naruto_vs_pain.webp"
+    img:"https://loremflickr.com/500/500"
   },
   {
     _id: "F5D83NP",
@@ -61,7 +61,7 @@ export const posts =  [
     comment:[],
     following:[],
     followers:[],
-    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/eren.webp"
+    img:"https://picsum.photos/seed/pic1/500/500"
   },
   {
     _id: "H6Q42JT",
@@ -79,7 +79,7 @@ export const posts =  [
     comment:[],
     following:[],
     followers:[],
-    img:"https://raw.githubusercontent.com/Nithin3008/social_media_proj/master/public/images/vegeta.webp"
+    img:"https://loremflickr.com/500/500/nature"
   },
   {
     _id: "W1Z95YL",
@@ -97,6 +97,6 @@ export const posts =  [
     comment:[],
     following:[],
     followers:[],
-    img:"https://github.com/Nithin3008/social_media_proj/blob/master/public/images/Gojo.jpg?raw=true"
+    img:"https://loremflickr.com/500/500/abstract"
   },
 ];
