@@ -2,13 +2,23 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../services/HandlerContext/AuthFunc";
 import { MainContext } from "../../services/contexts/MainContext";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+} from "@chakra-ui/react";
+import "./LoginPage.css";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const { Login,signup,authState} = useContext(AuthContext);
+  const { Login, signup, authState } = useContext(AuthContext);
   const { mainState } = useContext(MainContext);
 
-  const userData={username:"",password:''}
+  const userData = { username: "", password: "" };
 
   const guestUser = {
     username: "tonyStark",
@@ -21,7 +31,7 @@ export const LoginPage = () => {
       console.log("invalid input");
     } else {
       console.log("logged in data", userData);
-      Login(userData);    
+      Login(userData);
     }
   };
 
@@ -29,41 +39,47 @@ export const LoginPage = () => {
     e.preventDefault();
     // setUserData(guestUser);
     Login(guestUser);
-  
   };
 
   return (
-    <div>
-      <div>
-        <h1>K-Verse</h1>
-        <h2>Login</h2>
-        <>
+    <Box>
+      <Heading as="h1" size="xl" mb={6}>
+        K-Verse
+      </Heading>
+      <Heading as="h1" size="xl" mb={6}>
+          Login
+        </Heading>
+      <Flex className="container">        
+        <Box className="form-box">
           <div>
-            <p>Username: </p>
-            <input
+            <FormControl>
+              <FormLabel>Username:</FormLabel>
+            </FormControl>
+            <Input
               id="username"
               type="text"
-              
               //value={userData.username}
-              onChange={(e) =>userData.username=e.target.value}
+              onChange={(e) => (userData.username = e.target.value)}
             />
-            <p>Password: </p>
-            <input
-              id="password"
-              type="password"
-              
-             //value={userData?.password}
-              onChange={(e) =>userData.password=e.target.value}
-            />
+            <FormControl>
+              <FormLabel>Password:</FormLabel>
+              <Input
+                id="password"
+                type="password"
+                //value={userData?.password}
+                onChange={(e) => (userData.password = e.target.value)}
+              />
+            </FormControl>
+
             <div>
-              <button onClick={(e)=>loginHandler(e)}>Login</button>
+              <Button colorScheme="blue" size="lg" width="full" onClick={(e) => loginHandler(e)}>Login</Button>
             </div>
-            <div> 
-              <button onClick={(e)=>guestLogin(e)}>Guest Login</button>
+            <div>
+              <Button colorScheme="blue" size="lg" width="full" onClick={(e) => guestLogin(e)}>Guest Login</Button>
             </div>
           </div>
-        </>
-      </div>
-    </div>
+        </Box>
+      </Flex>
+    </Box>
   );
 };
