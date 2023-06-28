@@ -11,14 +11,15 @@ export const MainContextProvider = ({ children }) => {
       const resUser = await axios.get("/api/users");
 
       mainDispatcher({ type: "getUsers", payload: resUser.data.users });
+      console.log(resUser.data.users)
     } catch (error) {
       console.log(error);
     }
   };
   const storedToken = localStorage.getItem("token");
-  const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const storedUser = JSON?.parse(localStorage?.getItem("loggedInUser"));
 
-  const mainData = {
+  const mainData = { 
     existingUser: [],
     isLoggedIn: storedToken ? true : false,
     loggedInUser: storedUser

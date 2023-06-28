@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { MainContext } from "../../services/contexts/MainContext";
 import { PostContext } from "../../services/HandlerContext/PostsFunc";
 import { SideBar } from "../../components/SideBar/Sidebar";
-// import "./Home.css";
+ import "./Home.css";
 import { FollowContext } from "../../services/HandlerContext/FollowFunc";
 import { Suggestions } from "../../components/Suggestions/Suggestions";
 
@@ -20,9 +20,8 @@ export const Home = () => {
     editPost,
     deletePost,
   } = useContext(PostContext);
-  
-  const{setFollowing}=useContext(FollowContext);
 
+  const { setFollowing } = useContext(FollowContext);
 
   const [editDetails, setDetails] = useState("");
   const [editImage, setImage] = useState();
@@ -64,9 +63,12 @@ export const Home = () => {
     setShow(!show);
     editPost(edits);
   };
+  const homePage=()=>{
+
+  }
   return (
     <div className="home">
-      <SideBar />
+    <SideBar/>
       <div className="home-content">
         <div className="create-post">
           <textarea
@@ -153,17 +155,6 @@ export const Home = () => {
         </div>
       </div>
       <Suggestions/>
-      {/* <div className="home-suggestions">
-        <h3>who to follow?</h3>
-        {mainState?.existingUser?.map((user) => (
-          <div key={user.id}>
-            <li>
-              <strong>{user.username}</strong>
-              <button onClick={()=>setFollowing(user._id)}>Follow</button>
-            </li>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.home {
+/* .home {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,4 +17,57 @@
 
 @media screen and (max-width: 600px){
     
+} */
+
+.home {
+  display: flex;
+  justify-content: center;
+}
+
+.home-content {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.sidebar {
+  width: 15rem;
+  background-color: #f5f8fa;
+  padding: 1rem;
+  padding-right: 20px;
+}
+
+.suggestions {
+  width: 250px;
+  background-color: #f5f8fa;
+  padding: 1rem;
+}
+
+.create-post {
+  margin-bottom: 1rem;
+}
+
+.posts {
+  list-style-type: none;
+  padding: 0;
+}
+
+.posts li {
+  margin-bottom: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .home-content {
+    width: 100%;
+  }
+
+  .sidebar,
+  .suggestions {
+    width: 100%;
+    margin-top: 1rem;
+  }
 }

@@ -9,13 +9,15 @@ export const Bookmark = () => {
     dislikeHandler,
     checkLikes,}=useContext(PostContext);
 
-    const bookmarkData=[...bookmarkData]
+    const bookmarkData=[...mainState.bookMark]
   
   const removeHandler=(postId)=>{
     if(checkBookmark().includes(postId)){
       removeBookmark(postId)
     } 
   }
+  
+  console.log(bookmarkData);
   return (
     <div>
       <div>
@@ -28,7 +30,7 @@ export const Bookmark = () => {
                 <button onClick={()=>removeHandler(bmark._id)}>Remove Form Bookmark</button>
                 <button  onClick={() => {
                     checkLikes()?.includes(bmark._id) === true
-                      ? dislikeHandler(bmark._id)
+                      ? dislikeHandler(bmark._id) 
                       : likeHandler(bmark._id);
                   }}>{checkLikes()?.includes(bmark._id) === true
                     ? "dislike"

@@ -16,52 +16,64 @@ export const SideBar = () => {
   return (
     <Box className="sidebar" px={4} py={6}>
       <VStack className="sidebar-nav">
-        <IconButton
-          aria-label="Home"
-          icon={<FontAwesomeIcon icon={faHome} />}
-          variant="ghost"
-          size="lg"
-          className="sidebar-icon"
-        />
-        <NavLink className="sidebar-link" to="/home">
-          Home
-        </NavLink>
-        <IconButton
-          aria-label="Home"
-          icon={<FontAwesomeIcon icon={faCompass} />}
-          variant="ghost"
-          size="lg"
-          className="sidebar-icon"
-        />
-        <NavLink className="sidebar-link" to="/explore">
-          Explore
-        </NavLink>
-        <IconButton
-          aria-label="Home"
-          icon={<FontAwesomeIcon icon={faBookmark} />}
-          variant="ghost"
-          size="lg"
-          className="sidebar-icon"
-        />
-        <NavLink className="sidebar-link" to="/bookmark">
-          Bookmarks
-        </NavLink>
-        <IconButton
-          aria-label="Home"
-          variant="ghost"
-          size="lg"
-          className="sidebar-icon"
-        />
-        <Flex className="sidebar-user-profile" align="center">
-          <Box className="sidebar-user-icon">
-            <FontAwesomeIcon icon={faUser} size="lg" />
-          </Box>
-          <NavLink className="sidebar-link" to="/user-profile">
-            <Text className="sidebar-user-name" ml={2}>
-              User Profile
-            </Text>
+        <Box>
+          {" "}
+          <IconButton
+            aria-label="Home"
+            icon={<FontAwesomeIcon icon={faHome} />}
+            variant="ghost"
+            size="lg"
+            className="sidebar-icon"
+          />
+          <NavLink className="sidebar-link" to="/home">
+            Home
           </NavLink>
-        </Flex>
+        </Box>
+
+        <Box>
+          <IconButton
+            aria-label="Home"
+            icon={<FontAwesomeIcon icon={faCompass} />}
+            variant="ghost"
+            size="lg"
+            className="sidebar-icon"
+          />
+          <NavLink className="sidebar-link" to="/explore">
+            Explore
+          </NavLink>
+        </Box>
+
+        <Box>
+          <IconButton
+            aria-label="Home"
+            icon={<FontAwesomeIcon icon={faBookmark} />}
+            variant="ghost"
+            size="lg"
+            className="sidebar-icon"
+          />
+          <NavLink className="sidebar-link" to="/bookmark">
+            Bookmarks
+          </NavLink>
+        </Box>
+
+        <Box>
+          {/* <IconButton
+            aria-label="Home"
+            variant="ghost"
+            size="lg"
+            className="sidebar-icon"
+          /> */}
+          <Flex className="sidebar-user-profile" align="center">
+            <Box className="sidebar-user-icon">
+              <FontAwesomeIcon icon={faUser} size="lg" />
+              <NavLink className="sidebar-link" to="/user-profile">
+                <Text className="sidebar-user-name" ml={2}>
+                  User Profile
+                </Text>
+              </NavLink>
+            </Box>
+          </Flex>
+        </Box>
       </VStack>
     </Box>
   );

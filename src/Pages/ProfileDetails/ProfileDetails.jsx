@@ -14,18 +14,22 @@ export const ProfileDetails = () => {
   const { setFollowing, setUnfollow } = useContext(FollowContext);
   const { editedProf, existingFollower } = useContext(UserContext);
   const profileData =
-    profileId === mainState.loggedInUser.username
+    profileId === mainState?.loggedInUser.username
       ? mainState.loggedInUser
-      : mainState.existingUser.find((user) => user.username === profileId);
+      : mainState?.existingUser.find((user) => user.username === profileId);
 
-      console.log(profileData)
 
   const postData = mainState.posts.filter(
     (post) => post.username === profileId
   );
 
+  // console.log(mainState.existingUser.find((user)=>user.username===profileId))
+  console.log(profileId === mainState?.loggedInUser.username
+      ? mainState.loggedInUser
+      : mainState.existingUser)
 
-  const {
+
+  const { 
     likeHandler,
     dislikeHandler,
     checkLikes,
@@ -111,7 +115,6 @@ export const ProfileDetails = () => {
       <hr />
       {postData.map((post) => (
         <ul>
-        {console.log(profileData)}
           <li>{post.username}</li>
           <li>{post.content}</li>
           <li>{input}</li>

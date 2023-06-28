@@ -12,7 +12,7 @@ export const users = [
     firstName: "Tony",
     lastName: "Stark",
     username: "tonyStark",
-    password: "TonyStark123",
+    password: "TonyStark123", 
     bookmarks: [],
     bio: "Aspring FullStack Developer",
     website: "https://adarshbalak.netlify.app",

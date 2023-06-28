@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
      mainDispatcher({ type: "setToken", payload: "" });
     //  mainDispatcher({ type: "setUser", payload: {} });
     console.log("loggedOut")
-    // navigate("/");
+     navigate("/");
   };
 
   return (
