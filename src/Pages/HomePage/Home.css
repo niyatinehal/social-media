@@ -22,6 +22,7 @@
 .home {
   display: flex;
   justify-content: center;
+  background-color: #611E5A;
 }
 
 .home-content {

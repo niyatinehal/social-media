@@ -19,7 +19,7 @@ export const users = [
     avatar:
       "https://avatars.dicebear.com/api/avataaars/avatar1.svg",
     createdAt: formatDate(),
-    updatedAt: formatDate(),
+    updatedAt: formatDate(), 
   },
   {
     _id: "9PQ21YW",
