@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+:root{
+  --color-0:#e6e6e6;
+  --color-1:#eabfff;
+  --color-2:#d580ff;
+  --color-3:#800080;
+  --color-4:#3c005a;
+ --font:'Dancing Script',cursive;
+}
+
+
 .App {
   text-align: center;
 }

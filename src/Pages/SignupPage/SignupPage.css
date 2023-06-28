@@ -1,19 +1,56 @@
+.signup-main-page {
+  background-color: var(--color-1);
+  height: 100vh;
+  opacity: 0.8;
+  background-image: url('https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg');  
+}
+.heading-top {
+
+  margin-bottom: 20px;
+  padding: 1rem;
+  border: 10px solid var(--color-1);
+  border-radius: 20px;
+  font-family: var(--font);
+  font-size: 5rem;
+  color: var(--color-1);
+  display: inline-block;
+  background-color:var(--color-4)
+}
+
 .signup-page-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85%;
-  background-color:blue;
-  width:95%;
-  padding:5rem;
+  width: 95%;
+  padding: 5rem;
+  background-color: var(--color-4);
+  border: 5px solid var(--color-4);
+  border-radius: 10px;
+
 }
 
 .signup-form {
   width: 500px;
-  background-color: #fff;
+  background-color: var(--color-1);
   border-radius: 8px;
   padding: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+Input {
+  font-family: var(--font);
+  width: auto;
+  border-radius: 10px;
+}
+.form-lable {
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.form-control {
+  display: flex;
+  justify-content:space-evenly;
+  margin-bottom: 10px;
 }
 
 .signup-heading {
@@ -29,8 +66,15 @@
 }
 
 .signup-button {
-  width: 100%; 
-  margin-top: 24px;
+  /* width: 100%; */
+  margin-top: 15px;
+  font: var(--font);
+  padding: 15px;
+  display: inline-block;
+  border: 5px solid var(--color-1);
+  border-radius: 25px;
+  color: var(--color-1);
+  background-color: var(--color-4);
 }
 
 @media screen and (max-width: 480px) {

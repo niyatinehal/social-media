@@ -50,27 +50,26 @@ export const SignupPage = () => {
   };
 
   return (
-    <Box>
-      <Heading as="h1" textAlign="center" mb={6}>
+    <Box className="signup-main-page">
+      <Heading as="h1" textAlign="center" className="heading-top">
         K-Verse
       </Heading>
       <Box
         maxWidth="400px"
         mx="auto"
-        mt={8}
+        mt={9}
         p={4}
         borderRadius="md"
         boxShadow="md"
-        bg="white"
         className="signup-page-container"
       >
-        <Heading as="h1" textAlign="center" mb={6} className="signup-heading">
+        {/* <Heading as="h1" textAlign="center" mb={6} className="signup-heading">
           Sign-up
-        </Heading>
+        </Heading> */}
 
         <form onSubmit={(e) => signupHandler(e)} className="signup-form">
-          <FormControl id="name" mb={4}>
-            <FormLabel>First Name</FormLabel>
+          <FormControl id="name" mb={4} className="form-control">
+            <FormLabel className="form-lable">First Name</FormLabel>
             <Input
               id="firstName"
               type="text"
@@ -83,8 +82,8 @@ export const SignupPage = () => {
             />
           </FormControl>
 
-          <FormControl>
-            <FormLabel>Last Name</FormLabel>{" "}
+          <FormControl className="form-control">
+            <FormLabel className="form-lable">Last Name</FormLabel>{" "}
             <Input
               id="lastName"
               type="text"
@@ -95,8 +94,8 @@ export const SignupPage = () => {
             />
           </FormControl>
 
-          <FormControl>
-            <FormLabel>User Name</FormLabel>
+          <FormControl className="form-control">
+            <FormLabel className="form-lable">User Name</FormLabel>
             <Input
               id="username"
               type="text"
@@ -107,8 +106,8 @@ export const SignupPage = () => {
             />
           </FormControl>
 
-          <FormControl>
-            <FormLabel>Email: </FormLabel>
+          <FormControl className="form-control">
+            <FormLabel className="form-lable">Email:</FormLabel>{" "}
             <Input
               id="email"
               type="email"
@@ -119,8 +118,8 @@ export const SignupPage = () => {
             />
           </FormControl>
 
-          <FormControl>
-            <FormLabel>Password</FormLabel>
+          <FormControl className="form-control">
+            <FormLabel className="form-lable">Password</FormLabel>
             <Input
               id="password"
               type="password"
@@ -131,8 +130,8 @@ export const SignupPage = () => {
             />
           </FormControl>
 
-          <FormControl>
-            <FormLabel>Confirm Password</FormLabel>{" "}
+          <FormControl className="form-control">
+            <FormLabel className="form-lable">Confirm Password</FormLabel>{" "}
             <Input
               id="confirmPassword"
               type="password"
