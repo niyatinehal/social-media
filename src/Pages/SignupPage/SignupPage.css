@@ -9,7 +9,7 @@
   border: 10px solid var(--color-1);
   border-radius: 20px;
   font-family: var(--font);
-  font-size: 5rem;
+  font-size: 3rem;
   color: var(--color-1);
   display: inline-block;
   background-color:var(--color-4)
@@ -61,6 +61,9 @@ Input {
 .signup-input {
   /* width: 100%; */
   margin-bottom: 24px;
+}
+.button-box{
+  font-family: var(--font);
 }
 
 .signup-button {

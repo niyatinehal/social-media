@@ -8,6 +8,7 @@ import {
   InputGroup,
   InputRightElement,
   IconButton,
+  Image
 } from "@chakra-ui/react";
 import "./navbar.css";
 
@@ -25,7 +26,9 @@ export const Navbar = () => {
       // alignItems="center"
       // color="var(--color5)"
     >
-      <Box className="logo">Logo</Box>
+      <Box className="logo" as="img" src="C:\Users\B K Choudhary\Desktop\niyati\padhai\Neog\Assignment\social-media\src\asset\k-verse-low-resolution-logo-color-on-transparent-background.png">
+       
+      </Box>
 
       <Input
         className="search-bar"

@@ -145,7 +145,7 @@ export const SignupPage = () => {
             />
           </FormControl>
 
-          <Box>
+          <Box className="button-box">
             <Button
               type="submit"
               className="signup-button"
@@ -153,7 +153,7 @@ export const SignupPage = () => {
               SignUp!
             </Button>
           </Box>
-          <Box textAlign="center" >
+          <Box textAlign="center" className="button-box">
             <Button
               onClick={() => navigate("/login-page")}
               className="signup-button"

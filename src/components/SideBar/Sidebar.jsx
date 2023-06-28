@@ -55,7 +55,7 @@ export const SideBar = () => {
             Bookmarks
           </NavLink>
         </Box>
-
+ 
         <Box>
           {/* <IconButton
             aria-label="Home"
