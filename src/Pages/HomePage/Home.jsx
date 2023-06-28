@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { MainContext } from "../../services/contexts/MainContext";
 import { PostContext } from "../../services/HandlerContext/PostsFunc";
 import { SideBar } from "../../components/SideBar/Sidebar";
- import "./Home.css";
+import "./Home.css";
 import { FollowContext } from "../../services/HandlerContext/FollowFunc";
 import { Suggestions } from "../../components/Suggestions/Suggestions";
 
@@ -63,12 +63,10 @@ export const Home = () => {
     setShow(!show);
     editPost(edits);
   };
-  const homePage=()=>{
-
-  }
+  const homePage = () => {};
   return (
     <div className="home">
-    <SideBar/>
+      <SideBar />
       <div className="home-content">
         <div className="create-post">
           <textarea
@@ -154,7 +152,7 @@ export const Home = () => {
           ))}
         </div>
       </div>
-      <Suggestions/>
+      <Suggestions />
     </div>
   );
 };
