@@ -42,44 +42,71 @@ export const LoginPage = () => {
   };
 
   return (
-    <Box>
-      <Heading as="h1" size="xl" mb={6}>
+    <Box className="login-main-page">
+      <Heading as="h1" size="xl" mb={6} className="heading-top">
         K-Verse
       </Heading>
-      <Heading as="h1" size="xl" mb={6}>
-          Login
-        </Heading>
-      <Flex className="container">        
+      <Heading as="h1" size="xl" mb={6} className="login-heading">
+        Login
+      </Heading>
+      <Box
+        className="container"
+        mx="auto"
+        mt={9}
+        p={4}
+        borderRadius="md"
+        boxShadow="md"
+        maxWidth="400px"
+      >
         <Box className="form-box">
           <div>
             <FormControl>
-              <FormLabel>Username:</FormLabel>
+              <FormLabel textAlign="center" className="form-lable-login">
+                Username:
+                <Input className="signup-input"
+                  id="username"
+                  type="text"
+                  //value={userData.username}
+                  onChange={(e) => (userData.username = e.target.value)}
+                />
+              </FormLabel>
             </FormControl>
-            <Input
-              id="username"
-              type="text"
-              //value={userData.username}
-              onChange={(e) => (userData.username = e.target.value)}
-            />
+
             <FormControl>
-              <FormLabel>Password:</FormLabel>
-              <Input
-                id="password"
-                type="password"
-                //value={userData?.password}
-                onChange={(e) => (userData.password = e.target.value)}
-              />
+              <FormLabel textAlign="center" className="form-lable-login">
+                Password:
+                <Input className="signup-input"
+                  id="password"
+                  type="password"
+                  //value={userData?.password}
+                  onChange={(e) => (userData.password = e.target.value)}
+                />
+              </FormLabel>
             </FormControl>
 
             <div>
-              <Button colorScheme="blue" size="lg" width="full" onClick={(e) => loginHandler(e)}>Login</Button>
+              <Button className="signup-button"
+                colorScheme="blue"
+                size="lg"
+                width="full"
+                onClick={(e) => loginHandler(e)}
+              >
+                Login
+              </Button>
             </div>
             <div>
-              <Button colorScheme="blue" size="lg" width="full" onClick={(e) => guestLogin(e)}>Guest Login</Button>
+              <Button className="signup-button"
+                colorScheme="blue"
+                size="lg"
+                width="full"
+                onClick={(e) => guestLogin(e)}
+              >
+                Guest Login
+              </Button>
             </div>
           </div>
         </Box>
-      </Flex>
+      </Box>
     </Box>
   );
 };

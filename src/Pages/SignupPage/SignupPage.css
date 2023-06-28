@@ -1,11 +1,9 @@
 .signup-main-page {
-  background-color: var(--color-1);
   height: 100vh;
   opacity: 0.8;
-  background-image: url('https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg');  
+  background-image: url('https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg');   
 }
 .heading-top {
-
   margin-bottom: 20px;
   padding: 1rem;
   border: 10px solid var(--color-1);
@@ -61,18 +59,20 @@ Input {
 }
 
 .signup-input {
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 24px;
 }
 
 .signup-button {
   /* width: 100%; */
-  margin-top: 15px;
+  margin-top: 2px;
   font: var(--font);
+  font-weight: 300;
+  font-size: 20px;
   padding: 15px;
   display: inline-block;
   border: 5px solid var(--color-1);
-  border-radius: 25px;
+  border-radius: 4rem;
   color: var(--color-1);
   background-color: var(--color-4);
 }

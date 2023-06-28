@@ -7,7 +7,7 @@ import "./SignupPage.css";
 import {
   Box,
   FormLabel,
-  Heading,
+  Heading, 
   Input,
   FormControl,
   Button,
@@ -64,7 +64,7 @@ export const SignupPage = () => {
         className="signup-page-container"
       >
         {/* <Heading as="h1" textAlign="center" mb={6} className="signup-heading">
-          Sign-up
+          Sign-up 
         </Heading> */}
 
         <form onSubmit={(e) => signupHandler(e)} className="signup-form">
@@ -148,18 +148,14 @@ export const SignupPage = () => {
           <Box>
             <Button
               type="submit"
-              colorScheme="teal"
-              width="full"
               className="signup-button"
             >
               SignUp!
             </Button>
           </Box>
-          <Box textAlign="center" mt={4}>
+          <Box textAlign="center" >
             <Button
               onClick={() => navigate("/login-page")}
-              colorScheme="teal"
-              width="full"
               className="signup-button"
             >
               Already a User
