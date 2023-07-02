@@ -1,15 +1,14 @@
-@import '~@fortawesome/fontawesome-svg-core/styles.css';
-
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 .sidebar {
-  width: 10rem; 
+  width: 10rem;
   height: auto;
   padding: 10px;
- background-color: var(--color-1);
-  
+  background-color: var(--color-1);
+  margin-right: 2rem;
 }
 
-.sidebar-nav{
+.sidebar-nav {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -18,13 +17,13 @@
   height: 100%;
   justify-content: space-between;
 }
-.sidebar-nav-top{
+.sidebar-nav-top {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 2rem;
 }
- 
+
 .sidebar-container {
   display: flex;
   flex-direction: column;
@@ -36,11 +35,10 @@
 
 .sidebar-icon {
   margin-right: 20px;
-  
 }
-.sidebar-link{
+.sidebar-link {
   text-decoration: none;
-  color:var(--color-4) ;
+  color: var(--color-4);
   font-family: var(--font);
   font-size: 2rem;
   font-weight: bold;
@@ -49,7 +47,7 @@
   display: flex;
   align-items: center;
   margin-top: auto;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -68,8 +66,7 @@
 }
 
 @media screen and (max-width: 700px) {
-
-    .sidebar {
+  .sidebar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;

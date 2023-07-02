@@ -1,33 +1,55 @@
-/* .home {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-.home-content {
-  position: relative;
-  top: 3rem;
-  left: 3rem;
-}
-.home-suggestions{
-    position: relative;
-    top: 3rem;
-    left:8rem
-}
-
-@media screen and (max-width: 600px){
-    
-} */
-
 .home {
   display: flex;
   justify-content: center;
-  background-color: #611E5A;
+  background-color: var(--color-4);
+  background-image: url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg");
 }
 
 .home-content {
   width: 60%;
   margin: 0 auto;
+}
+
+.text-area {
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 16px;
+  color: #000;
+  background-color: var(--color-1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
+  outline: none;
+  font-family: var(--font);
+  height: max-content;
+  width: -webkit-fill-available;
+}
+/* .text-area:focus{
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+} */
+.button {
+  color: var(--color-4);
+}
+input {
+  color: var(--color-4);
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.create-post {
+  font-family: var(--font);
+  color: var(--color-4);
+  border: 2px solid black;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 20px;
+}
+.create-post,
+lable {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 1rem;
 }
 
 .sidebar {
@@ -47,13 +69,84 @@
   margin-bottom: 1rem;
 }
 
+.button-trending-sorting{
+  display: flex;
+  justify-content: center;
+  font-family: var(--font);
+}
+
+.button-trending-sorting button{
+  width: 50%;
+  padding: 10px;
+  font-family: var(--font);
+  background-color: var(--color-4);
+  border: 2px solid var(--color-1);
+  border-radius: 2rem;
+  color: var(--color-1);
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+
 .posts {
   list-style-type: none;
   padding: 0;
+  color: var(--color-1);
+  border: 2px solid var(--color-1);
+  background-color: var(--color-4);
+  font-family: var(--font);
+  font-size: 1.5rem;
 }
 
 .posts li {
   margin-bottom: 1rem;
+}
+.posts-list .post-content{
+  text-align: left;
+  padding-left: 2rem;
+}
+.user-info h3 {
+  padding-top: 5px;
+  margin-top: 4rem;
+  padding-left: 5px;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: space-around;
+}
+.user-info-hide-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-info p {
+  margin-top: 0;
+  font-weight: lighter;
+  font-size: smaller;
+}
+
+.user-info .date {
+  font-size: small;
+}
+.posts .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--color-1);
+  margin-right: 5px;
+  font-family: var(--font);
+  margin-left: 5px;
+}
+
+.posts .posted-img {
+  width: -webkit-fill-available;
 }
 
 /* Responsive Styles */

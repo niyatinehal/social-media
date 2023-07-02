@@ -16,6 +16,12 @@
   font-family: var(--font);
 }
 
+.search-bar {
+  flex-grow: 1;
+  margin: 0 1rem;
+ padding: 8px;
+}
+
 .suggestions-box {
   border-width: 1px;
   /* border-radius: 0.25rem; */
@@ -27,6 +33,7 @@
   margin:2px;
   font-family: var(--font);
   color: var(--color-4);
+  height: 70px;
 }
 .suggestions-box img{
   width: 50px;

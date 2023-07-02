@@ -10,20 +10,41 @@ export const posts =  [
   {
     _id: "R8S19MC",
     content:
-      "Demon slayer episode Kyojuro Rengoku vs Akaza was stunning and emotional fight",
+      "I snap!",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
     firstName:"Tony",
+    lastName:"Stark",
     username: "tonyStark",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comment:[],
     following:[],
     followers:[],
-    img:"https://source.unsplash.com/random/500x500"
+    img:"https://culturedvultures.com/wp-content/uploads/2016/11/18375601324_cacd540a4d_z.jpg"
+
+  },
+    {
+    _id: "R8S19MC",
+    content:
+      "I am Ironman!! 🔥",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    firstName:"Tony",
+    lastName:"Stark",
+    username: "tonyStark",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comment:[],
+    following:[],
+    followers:[],
+    img:""
 
   },
   {
