@@ -1,0 +1,20 @@
+.bookmark{
+    background-image:url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg");
+    font-family: var(--font);
+    display: flex;
+    height: 100%;
+}
+.bookmark-content{
+    width: 60%;
+}
+.no-bookmarks{
+    color: var(--color-4);
+    font-size: 2rem;
+    background-color: var(--color-1);
+    padding: 3px;
+    margin:2rem;
+    border-radius: 5rem;
+}
+.bookmark-posts-list{
+    
+}
