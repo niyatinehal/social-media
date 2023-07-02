@@ -22,11 +22,7 @@ export const Navbar = () => {
       <Box className="logo" as="img" src="C:\Users\B K Choudhary\Desktop\niyati\padhai\Neog\Assignment\social-media\src\asset\k-verse-low-resolution-logo-color-on-transparent-background.png">       
       </Box>
 
-      <Input
-        className="search-bar"
-        placeholder="Search"
-        size="sm"
-      />
+    
       <Button
         className="logout-button"
         colorScheme="blue"
