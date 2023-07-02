@@ -5,9 +5,14 @@ import { PostContext } from "../../services/HandlerContext/PostsFunc";
 import { UserContext } from "../../services/HandlerContext/UserFunc";
 import { useNavigate } from "react-router-dom";
 import { Suggestions } from "../../components/Suggestions/Suggestions";
+import { SideBar } from "../../components/SideBar/Sidebar";
+import "./explore.css";
+import { Box, Button } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export const Explore = () => {
-  const { mainState } = useContext(MainContext);
+  const { mainState, loggedInUser } = useContext(MainContext);
   const {
     likeHandler,
     dislikeHandler,
@@ -22,43 +27,94 @@ export const Explore = () => {
 
   const { avatar } = useContext(UserContext);
   const exploreData = [...mainState.posts];
-
-  console.log(exploreData);
+  console.log(exploreData.map((data) => data.username));
   return (
-    <div>
-      <div>
+    <Box className="explore">
+      <SideBar />
+      <Box className="explore-post">
         {exploreData.map((post) => (
-          <li>
-            <h3 onClick={()=>navigate(`/profile-details/${post.username}`)}>{post.username}</h3>
-            {console.log(post)}
-            <p onClick={()=>navigate(`/post-details/${post._id}`)}>{post.content}</p>
-            {/* <img src={avatar(post.username)} /> */}
-            <button
-              onClick={() => {
-                checkLikes()?.includes(post._id) === true
-                  ? dislikeHandler(post._id)
-                  : likeHandler(post._id);
-              }}
-            >
-              {checkLikes()?.includes(post._id) === true ? "dislike" : "like"}
-            </button>
-            {post.likes.likeCount}
+          <Box key={post.id} className="explore-posts-list">
+            <li key={post.id}>
+              <Box className="explore-user-info">
+                <Box className="explore-user-info-box">
+                  <img src={avatar(post.username)} alt="" className="avatar" />{" "}
+                  <h3
+                    onClick={() =>
+                      navigate(`/profile-details/${post.username}`)
+                    }
+                  >
+                    {post.firstName} {post.lastName}
+                    <p>
+                      @{post.username}
+                      <p className="date">
+                        {new Date(post.createdAt).toDateString()}
+                      </p>
+                    </p>
+                  </h3>
+                </Box>
+              </Box>
 
-            <button
-              onClick={() => {
-                checkBookmark()?.includes(post._id) === true
-                  ? removeBookmark(post._id)
-                  : bookmarkAdded(post._id);
-              }}
-            >
-              {checkBookmark()?.includes(post._id)
-                ? "remove bookmark"
-                : "add to bookmark"}
-            </button>
-          </li>
+              <p
+                onClick={() => navigate(`/post-details/${post._id}`)}
+                className="explore-post-content"
+              >
+                {post.content}
+              </p>
+
+              <img src={post.img} />
+              <Box>
+                <Button
+                  onClick={() => {
+                    checkLikes()?.includes(post._id) === true
+                      ? dislikeHandler(post._id)
+                      : likeHandler(post._id);
+                  }}
+                  bg="none"
+                    border="none"
+                >
+                  {checkLikes()?.includes(post._id) === true ? (
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      style={{ color: "black" }}
+                      size="2xl"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                        icon={faHeart}
+                        style={{ color: "white" }}
+                        size="2xl"
+                      />
+                  )}
+                </Button>
+                {post.likes.likeCount}{" "}
+                <Button
+                  onClick={() => {
+                    checkBookmark()?.includes(post._id) === true
+                      ? removeBookmark(post._id)
+                      : bookmarkAdded(post._id);
+                  }}
+                   bg="none"
+                    border="none"
+                >
+                  {checkBookmark()?.includes(post._id)
+                    ? <FontAwesomeIcon
+                        icon={faBookmark}
+                        style={{ color: "#eabfff" }}
+                        size="2xl"
+                      />
+                    : <FontAwesomeIcon
+                        icon={faBookmark}
+                        style={{ color: "white" }}
+                        size="2xl"
+                      />}
+                </Button>
+              </Box>
+            </li>
+            <hr />
+          </Box>
         ))}
-        <Suggestions/>
-      </div>
-    </div>
+      </Box>
+      <Suggestions />
+    </Box>
   );
 };

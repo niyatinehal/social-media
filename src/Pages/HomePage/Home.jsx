@@ -141,9 +141,9 @@ export const Home = () => {
                       <p>
                         @{post.username}
                         <p className="date">
-                          {new Date(post.createdAt).toDateString()}{new Date(post.createdAt).toTimeString()}
+                          {new Date(post.createdAt).toDateString()}
                         </p>
-                        {console.log(new Date(post.createdAt).getMinutes())}
+                        
                       </p>
                     </h3>
                   </Box>
@@ -172,7 +172,7 @@ export const Home = () => {
                   </Menu>
                 </Box>
                 <p className="post-content">{post.content}</p>
-                {console.log("user-info", post)}
+                
                 <img src={post.img} alt="" srcset="" className="posted-img" />
 
                 <Box className="edit-post">

@@ -1,0 +1,46 @@
+.explore {
+  display: flex;
+  background-image: url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg");
+}
+.explore-post {
+  font-family: var(--font);
+  color: var(--color-4);
+  border: 2px solid var(--color-1);
+  margin-top: 2rem;
+  background-color: var(--color-4);
+  border-radius: 20px;
+  color: var(--color-1);
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--color-1);
+  margin-right: 5px;
+  font-family: var(--font);
+  margin-left: 5px;
+}
+li {
+  list-style-type: none;
+}
+.explore-user-info {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 3rem;
+}
+.explore-user-info-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.explore-user-info-box p {
+  margin-top: 0;
+  font-weight: lighter;
+  font-size: smaller;
+}
+.explore-post-content {
+  text-align: left;
+  padding-left: 2rem;
+}

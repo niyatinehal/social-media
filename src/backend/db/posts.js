@@ -6,46 +6,42 @@ import { formatDate } from "../utils/authUtils";
  * You can add default posts of your wish with different attributes
  * */
 
-export const posts =  [
+export const posts = [
   {
     _id: "R8S19MC",
-    content:
-      "I snap!",
+    content: "I snap!",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    firstName:"Tony",
-    lastName:"Stark",
+    firstName: "Tony",
+    lastName: "Stark",
     username: "tonyStark",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    comment:[],
-    following:[],
-    followers:[],
-    img:"https://culturedvultures.com/wp-content/uploads/2016/11/18375601324_cacd540a4d_z.jpg"
-
+    comment: [],
+    following: [],
+    followers: [],
+    img: "https://culturedvultures.com/wp-content/uploads/2016/11/18375601324_cacd540a4d_z.jpg",
   },
-    {
+  {
     _id: "R8S19MC",
-    content:
-      "I am Ironman!! 🔥",
+    content: "I am Ironman!! 🔥",
     likes: {
       likeCount: 5,
       likedBy: [],
       dislikedBy: [],
     },
-    firstName:"Tony",
-    lastName:"Stark",
+    firstName: "Tony",
+    lastName: "Stark",
     username: "tonyStark",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    comment:[],
-    following:[],
-    followers:[],
-    img:""
-
+    comment: [],
+    following: [],
+    followers: [],
+    img: "",
   },
   {
     _id: "B2V76XK",
@@ -56,68 +52,68 @@ export const posts =  [
       likedBy: [],
       dislikedBy: [],
     },
-    firstName:"Naruto",
-    username: "narutoUzumaki",
+    firstName: "Kim",
+    lastName: "Taehyung",
+    username: "thv",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    comment:[],
-    following:[],
-    followers:[],
-    img:"https://loremflickr.com/500/500"
+    comment: [],
+    following: [],
+    followers: [],
+    img: "https://loremflickr.com/500/500",
   },
   {
     _id: "F5D83NP",
-    content:
-      "Waiting for Attack on Titan Final episode",
+    content: "Waiting for Attack on Titan Final episode",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
-      
     },
-    firstName:"Kakshi",
-    username: "kakshiOfTheSharigan",
+    firstName: "Jeon",
+    lastName: "Jungkook",
+    username: "jungkook",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    comment:[],
-    following:[],
-    followers:[],
-    img:"https://picsum.photos/seed/pic1/500/500"
+    comment: [],
+    following: [],
+    followers: [],
+    img: "https://picsum.photos/seed/pic1/500/500",
   },
   {
     _id: "H6Q42JT",
-    content:
-      "Hope soon vegeta will get ultra instinct",
+    content: "Hope soon vegeta will get ultra instinct",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    firstName:"Tanjiro",
-    username: "TanjiroTheSunBreather",
+    firstName: "Lee",
+    lastName: "Ji-eun",
+    username: "your-IU",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    comment:[],
-    following:[],
-    followers:[],
-    img:"https://loremflickr.com/500/500/nature"
+    comment: [],
+    following: [],
+    followers: [],
+    img: "https://loremflickr.com/500/500/nature",
   },
   {
     _id: "W1Z95YL",
-    content:
-      "Waiting for Satoru Gojo to unleash his full power",
+    content: "Waiting for Satoru Gojo to unleash his full power",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    firstName:"Vegeta",
-    username: "PrinceVegeta",
+    firstName: "Ahn",
+    lastName: "Hye-jin",
+    username: "Hwasa",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    comment:[],
-    following:[],
-    followers:[],
-    img:"https://loremflickr.com/500/500/abstract"
+    comment: [],
+    following: [],
+    followers: [],
+    img: "https://loremflickr.com/500/500/abstract",
   },
 ];

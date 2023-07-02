@@ -71,7 +71,8 @@ export const UserProvider = ({ children }) => {
     const url = mainState.existingUser.find(
       (user) => user.username === userName
     );
-    return url.avatar;
+    console.log(url)
+    return url ? url.avatar : undefined;
   };
 
   return (
