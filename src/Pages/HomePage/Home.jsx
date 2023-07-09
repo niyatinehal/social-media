@@ -14,6 +14,7 @@ import {
   MenuList,
   MenuItem,
   Menu,
+  border,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,7 +23,9 @@ import {
   faHeart,
   faPaperPlane,
   faTrashAlt,
+  faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const { mainState, loggedInUser, mainDispatcher } = useContext(MainContext);
@@ -38,6 +41,7 @@ export const Home = () => {
     editPost,
     deletePost,
   } = useContext(PostContext);
+  const nav=useNavigate()
 
   const { setFollowing } = useContext(FollowContext);
 
@@ -65,7 +69,6 @@ export const Home = () => {
   };
   const checkPost = () => {
     uploadNewPost(postDetails);
-    console.log(postDetails);
   };
 
   //addComment
@@ -87,13 +90,12 @@ export const Home = () => {
     setSort(false);
   };
 
-  const latestHandler=()=>{
-    setSort(true)
-  }
-  const sorted= sort
-    ?postData.sort((a,b)=>b.likes.likeCount-a.likes.likeCount)
-    :postData;
-    console.log("sorted",sorted)
+  const latestHandler = () => {
+    setSort(true);
+  };
+  const sorted = sort
+    ? postData.sort((a, b) => b.likes.likeCount - a.likes.likeCount)
+    : postData;
 
   const homePage = () => {};
   return (
@@ -102,7 +104,7 @@ export const Home = () => {
       <Box className="home-content">
         <Box className="create-post">
           <Textarea
-            placeholder="whats on your mind"
+            placeholder="What's on your mind"
             className="text-area"
             onChange={(e) => (postDetails.content = e.target.value)}
           ></Textarea>
@@ -126,14 +128,14 @@ export const Home = () => {
         </Box>
         <Box className="button-trending-sorting">
           <Button onClick={() => trendingHandler()}>Trending</Button>
-          <Button onClick={()=>latestHandler()}>Latest</Button>
+          <Button onClick={() => latestHandler()}>Latest</Button>
         </Box>
         <Box className="posts">
           {postData?.map((post) => (
             <Box key={post.id} className="posts-list">
               <li key={post.id}>
                 <Box className="user-info">
-                  <Box className="user-info-hide-icon">
+                  <Box className="user-info-hide-icon" onClick={()=>nav(`/profile-details/${post.username}`)}>
                     <img src={loggedInUser.avatar} alt="" className="avatar" />
 
                     <h3>
@@ -143,12 +145,17 @@ export const Home = () => {
                         <p className="date">
                           {new Date(post.createdAt).toDateString()}
                         </p>
-                        
                       </p>
                     </h3>
                   </Box>
                   <Menu>
-                    <MenuButton as={Button}>Hide</MenuButton>
+                    <MenuButton as={Button} bg="none" border="none">
+                      <FontAwesomeIcon
+                        icon={faCircleInfo}
+                        size="2xl"
+                        style={{ color: "#eabfff" }}
+                      />
+                    </MenuButton>
                     <MenuList>
                       <MenuItem>
                         <Button
@@ -158,45 +165,82 @@ export const Home = () => {
                             setDetails(post.content);
                             setImage(post.img);
                           }}
+                          bg="none"
+                          border="none"
                         >
-                          <FontAwesomeIcon icon={faEdit} />
+                          <FontAwesomeIcon
+                            icon={faEdit}
+                            size="2xl"
+                            style={{ color: "#3c005a" }}
+                          />
                         </Button>
                       </MenuItem>
                       <MenuItem>
                         {" "}
-                        <Button onClick={() => deletePost(post._id)}>
-                          <FontAwesomeIcon icon={faTrashAlt} />
+                        <Button
+                          onClick={() => deletePost(post._id)}
+                          bg="none"
+                          border="none"
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrashAlt}
+                            size="2xl"
+                            style={{ color: "#3c005a" }}
+                          />
                         </Button>
                       </MenuItem>
                     </MenuList>
                   </Menu>
                 </Box>
-                <p className="post-content">{post.content}</p>
-                
-                <img src={post.img} alt="" srcset="" className="posted-img" />
-
                 <Box className="edit-post">
-                  <Box style={{ display: show ? "block" : "none" }}>
-                    <h1>Edit Post</h1>
-                    <Input
-                      type="text"
-                      onChange={(e) => setDetails(e.target.value)}
-                      value={editDetails}
-                    />
-                    <Button onClick={() => setImage(null)}>Remove Image</Button>
-                    <label>
-                      choose New Image
+                  <Box style={editObject===post?{ display: show ? "block" : "none" } :{display:"none"}}>
+                  
+                    <h3>Edit Post</h3>
+                    <Box className="input-box">
                       <Input
-                        type="file"
-                        onChange={(e) => setImage(e.target.files[0])}
+                        className="input"
+                        type="text"
+                        onChange={(e) => setDetails(e.target.value)}
+                        value={editDetails}
                       />
+                      <Button
+                        onClick={() => setImage(null)}
+                        className="edit-btn"
+                      >
+                        Remove Image
+                      </Button>
+                    </Box>
+
+                    <label className="edit-lable">
+                      <p>
+                        choose New Image{" "}
+                        <Input
+                          type="file"
+                          onChange={(e) => setImage(e.target.files[0])}
+                        />
+                      </p>
                     </label>
                     <Box>
-                      <Button onClick={() => saveEditPost()}>Save</Button>
-                      <Button onClick={() => setShow(!show)}>Cancel</Button>
+                      <Button
+                        className="edit-btn"
+                        onClick={() => saveEditPost()}
+                      >
+                        Save
+                      </Button>
+                      <Button
+                        className="edit-btn"
+                        onClick={() => setShow(!show)}
+                      >
+                        Cancel
+                      </Button>
                     </Box>
                   </Box>
                 </Box>
+
+                <p className="post-content">{post.content}</p>
+
+                <img src={post.img} alt="" className="posted-img" />
+
                 <Box>
                   <Button
                     onClick={() => {

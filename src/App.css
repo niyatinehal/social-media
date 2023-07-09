@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 
 :root{
-  --color-0:#e6e6e6;
-  --color-1:#eabfff;
-  --color-2:#d580ff;
-  --color-3:#800080;
-  --color-4:#3c005a;
+  --color-0:#fcf3ea;
+  --color-1:#ddd4cc;
+  --color-2:#afa193;
+  --color-3:#9b8269;
+  --color-4:#5f5449;
  --font:'Dancing Script',cursive;
+ --font-2:'Black Ops One',cursive
 }
 
 
 .App {
   text-align: center;
-  height: 90vh;
+  /* height: 100vh; */
 }
 
 .App-logo {

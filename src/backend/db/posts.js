@@ -8,7 +8,8 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: "R8S19MC",
+    _id: uuid(),
+    id:101,
     content: "I snap!",
     likes: {
       likeCount: 0,
@@ -22,11 +23,12 @@ export const posts = [
     updatedAt: formatDate(),
     comment: [],
     following: [],
-    followers: [],
+    followers: [], 
     img: "https://culturedvultures.com/wp-content/uploads/2016/11/18375601324_cacd540a4d_z.jpg",
   },
   {
-    _id: "R8S19MC",
+    _id: uuid(),
+    id:102,
     content: "I am Ironman!! 🔥",
     likes: {
       likeCount: 5,
@@ -44,7 +46,8 @@ export const posts = [
     img: "",
   },
   {
-    _id: "B2V76XK",
+    _id: uuid(),
+    id:201,
     content:
       "Rewatching battle between naruto vs pain, Naruto makes an entrance into the Hidden Leaf Village, but doesn’t recognize his surroundings. Naruto is unable to sense the Chakra of many beloved to him, including his teacher Kakashi Hatake.",
     likes: {
@@ -63,7 +66,8 @@ export const posts = [
     img: "https://loremflickr.com/500/500",
   },
   {
-    _id: "F5D83NP",
+    _id: uuid(),
+    id:301,
     content: "Waiting for Attack on Titan Final episode",
     likes: {
       likeCount: 0,
@@ -81,7 +85,8 @@ export const posts = [
     img: "https://picsum.photos/seed/pic1/500/500",
   },
   {
-    _id: "H6Q42JT",
+    _id: uuid(),
+    id:401,
     content: "Hope soon vegeta will get ultra instinct",
     likes: {
       likeCount: 0,
@@ -99,7 +104,8 @@ export const posts = [
     img: "https://loremflickr.com/500/500/nature",
   },
   {
-    _id: "W1Z95YL",
+    _id: uuid(),
+    id:501,
     content: "Waiting for Satoru Gojo to unleash his full power",
     likes: {
       likeCount: 0,

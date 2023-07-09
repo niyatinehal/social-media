@@ -40,7 +40,7 @@ export const SideBar = () => {
         </Box>        
           <Box className="sidebar-user-profile" align="center">
             <Box className="sidebar-user-icon">
-              <FontAwesomeIcon icon={faUser} size="lg" />
+              <FontAwesomeIcon icon={faUser} size="lg"  className="dp"/>
               <NavLink className="sidebar-link" to="/user-profile">
                 <Text className="sidebar-user-name" ml={5}>
                   User Profile

@@ -1,18 +1,26 @@
 .home {
   display: flex;
   justify-content: center;
-  background-color: var(--color-4);
-  background-image: url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg");
+  background-color: var(--color-0);
+  /* background-image: url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg"); */
 }
 
 .home-content {
   width: 60%;
   margin: 0 auto;
+   /* position: relative; */
+  /*top: 5rem; */
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  /* left: 10rem; */
+  margin-left: 20%;
+  margin-top: 3rem;
 }
 
 .text-area {
   border: none;
-  border-radius: 20px;
+  /* border-radius: 30px; */
   padding: 10px;
   margin-top: auto;
   font-size: 16px;
@@ -43,7 +51,7 @@ input {
   border: 2px solid black;
   margin-top: 2rem;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .create-post,
 lable {
@@ -53,17 +61,20 @@ lable {
 }
 
 .sidebar {
-  width: 15rem;
-  /* background-color: #f5f8fa; */
+  /* width: 15rem;
+  
   padding: 1rem;
-  padding-right: 20px;
+  padding-right: 20px; */
+  position: fixed;
+  left: 0;
+  top: 4rem;
 }
 
-.suggestions {
+/* .suggestions {
   width: 250px;
   background-color: #f5f8fa;
   padding: 1rem;
-}
+} */
 
 .create-post {
   margin-bottom: 1rem;
@@ -147,6 +158,38 @@ lable {
 
 .posts .posted-img {
   width: -webkit-fill-available;
+}
+
+.edit-post{
+  border: 2px solid var(--color-1);
+  margin:10px 2rem;
+}
+.edit-post h3{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.edit-post p{
+  text-align: end;
+}
+ .input{
+  padding: 5px;
+}
+.edit-btn{
+  margin-top: 0.5rem;
+  margin-bottom: 10px;
+  margin-left: 0.5rem;
+  font: var(--font);
+  font-weight: 300;
+  font-size: 20px;
+  padding: 8px 12px;
+  display: inline-block;
+  border: 2px solid var(--color-1);
+  border-radius: 4rem;
+  color: var(--color-1);
+  background-color: var(--color-4);
+}
+.edit-lable p{
+  margin:0px;
 }
 
 /* Responsive Styles */

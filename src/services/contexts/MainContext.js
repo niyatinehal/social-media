@@ -11,7 +11,6 @@ export const MainContextProvider = ({ children }) => {
       const resUser = await axios.get("/api/users");
 
       mainDispatcher({ type: "getUsers", payload: resUser.data.users });
-      console.log(resUser.data.users)
     } catch (error) {
       console.log(error);
     }
@@ -45,15 +44,9 @@ export const MainContextProvider = ({ children }) => {
           existingUser: action.payload,
         };
       case "userDetails":
-        // const user = {
-        //   fName: action.payload.firstName,
-        //   lName: action.payload.lastName,
-        //   username: action.payload.username,
-        // };
         return {
           ...state,
           loggedInUser: action.payload,
-          // bookMark: action.payload.bookmark,
           followers: action.payload.followers,
           following: action.payload.following,
         };

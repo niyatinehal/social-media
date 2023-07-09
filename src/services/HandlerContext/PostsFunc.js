@@ -1,9 +1,9 @@
 //liked & disliked
-import axios from "axios";
+import axios from "axios"; 
 import React, { useContext, useReducer } from "react";
 
 import { createContext } from "react";
-import { MainContext } from "../contexts/MainContext";
+import { MainContext } from "../contexts/MainContext"; 
 
 export const PostContext = createContext();
 
@@ -26,6 +26,7 @@ export const PostsContextProvider = ({ children }) => {
   };
 
   const likeHandler = async (postId) => {
+    console.log(postId)
     try {
       const response = await axios.post(`/api/posts/like/${postId}`, empt, {
         headers: {
@@ -33,8 +34,8 @@ export const PostsContextProvider = ({ children }) => {
         },
       });
       if (response.status === 201) {
-        console.log("likeHandler:", response.data.posts);
         mainDispatcher({ type: "getPosts", payload: response.data.posts });
+        console.log(response)
       }
     } catch (error) {
       console.log("like-error", error);
@@ -48,10 +49,8 @@ export const PostsContextProvider = ({ children }) => {
           authorization: encodedToken,
         },
       });
-      console.log(postId);
       if (response.status === 201) {
         mainDispatcher({ type: "getPosts", payload: response.data.posts });
-        console.log("dislikeHandler:", response.data.posts);
       }
     } catch (error) {
       console.log(error);
@@ -66,6 +65,7 @@ export const PostsContextProvider = ({ children }) => {
         ? false
         : post._id
     );
+
     return check;
   };
 
@@ -133,22 +133,23 @@ export const PostsContextProvider = ({ children }) => {
   const uploadImg = async (post) => {
     try {
       const file = post.img;
-      console.log(file);
-      const present_key = "social_media_proj";
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", present_key);
+      console.log(file)
+      // const present_key = "social_media_proj";
+      // const formData = new FormData();
+      // formData.append("file", file);
+      // formData.append("upload_preset", present_key);
       if (post.img) {
-        const res = await fetch(
-          `https://api.cloudinary.com/v1_1/king-cloud/image/upload`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-        const x = await res.json();
-        console.log(x.url);
-        post.img = x.url;
+        // const res = await fetch(
+        //   `https://api.cloudinary.com/v1_1/king-cloud/image/upload`,
+        //   {
+        //     method: "POST",
+        //     body: formData,
+        //   }
+        // );
+        // const x = await res.json();
+        // console.log(x.url);
+        // post.img = x.url;
+        post.img=null
       } else {
         return { ...post, img: null };
       }
@@ -210,7 +211,6 @@ export const PostsContextProvider = ({ children }) => {
   };
 
   const editPost = async (editPost) => {
-    console.log("EDITED POST: ",editPost)
     try {
       const editedPost = await uploadImg(editPost);
       console.log("editedPost: ",editedPost);
@@ -223,15 +223,17 @@ export const PostsContextProvider = ({ children }) => {
   };
 
 
+
   const deletePost=async(postId)=>{
+    console.log(encodedToken)
     try {
-      const response=await axios.delete(`/api/posts/${postId}`,{
-        headers:{
-          aurthorization:encodedToken,
-        }
+      const response=await axios.delete(`/api/posts/${postId}`,{},{
+         headers: {
+            authorization: encodedToken,
+          }
       })
       console.log(response)
-      if(response.status!==200){
+      if(response.status===201){
         mainDispatcher({type:"getPosts",payload:response.data.posts})
       }
     } catch (error) {

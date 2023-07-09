@@ -26,7 +26,6 @@ export const SignupPage = () => {
     password: "",
     confirmPassword: "",
   });
-  console.log(userDeets);
   const signupHandler = (e) => {
     e.preventDefault();
 

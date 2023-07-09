@@ -29,7 +29,7 @@ export const signupHandler = function (schema, request) {
         }
       );
     }
-    const _id = uuid();
+    const _id ="1234";
 
     const newUser = {
       _id,
@@ -66,7 +66,7 @@ export const signupHandler = function (schema, request) {
  * */
 
 export const loginHandler = function (schema, request) {
-  console.log("controller check",schema,request)
+  console.log("controller check",request)
   const { username, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ username: username });

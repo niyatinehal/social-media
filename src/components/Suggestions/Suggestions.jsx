@@ -5,6 +5,7 @@ import { FollowContext } from "../../services/HandlerContext/FollowFunc";
 import { UserContext } from "../../services/HandlerContext/UserFunc";
 import { Box, VStack, Text, Button, useColorModeValue,Input } from "@chakra-ui/react";
 import "./suggestions.css";
+import { useNavigate } from "react-router-dom";
 
 export const Suggestions = () => {
   const { mainState } = useContext(MainContext);
@@ -12,6 +13,7 @@ export const Suggestions = () => {
   const { existingFollower } = useContext(UserContext);
   const [search,setSearch]=useState("");
   const buttonColorScheme = useColorModeValue("blue", "teal");
+  const nav=useNavigate()
 
   const searchHandler=(input)=>{
     console.log(input)
@@ -22,7 +24,6 @@ export const Suggestions = () => {
   const searchedUser=search.length>0?
   mainState.existingUser.filter((user)=>user.firstName.toLowerCase()===search.toLowerCase() || user.lastName.toLowerCase()===search.toLowerCase()) : mainState.existingUser;
 
-  console.log(searchedUser)
   return (
 
 
@@ -36,7 +37,7 @@ export const Suggestions = () => {
         onChange={(e)=>searchHandler(e.target.value)}
       />
         {searchedUser.map((user) => (
-          <Box key={user._id} className="suggestions-box">
+          <Box key={user._id} className="suggestions-box" onClick={()=>nav(`/profile-details/${user.username}`)}>
             <img src={user.avatar} alt="logo" />
             <Text className="suggestions-name" >
               {user.firstName} {user.lastName}<p>@{user.username}</p>

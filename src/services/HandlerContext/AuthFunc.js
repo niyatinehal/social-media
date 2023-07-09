@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const Login=(userDeets)=>{
-    console.log(userDeets)
     const login = async () => {
     try {
       const response = await axios.post("/api/auth/login", {
@@ -61,12 +60,6 @@ export const AuthProvider = ({ children }) => {
 
       if (response.status === 201) {
         localStorage.setItem("token", response.data.encodedToken);
-
-        // mainDispatcher({ type: "isLoggedIn", payload: true }); //can be removed
-        // mainDispatcher({
-        //   type: "setToken",
-        //   payload: response.data.encodedToken,
-        // }); //check if this can be removed
 
         mainDispatcher({
           type: "userDetails",
