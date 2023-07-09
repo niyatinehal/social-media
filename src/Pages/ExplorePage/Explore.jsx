@@ -75,7 +75,7 @@ export const Explore = () => {
                   {checkLikes()?.includes(post._id) === true ? (
                     <FontAwesomeIcon
                       icon={faHeart}
-                      style={{ color: "black" }}
+                      style={{ color: "#afa193" }}
                       size="2xl"
                     />
                   ) : (
@@ -99,7 +99,7 @@ export const Explore = () => {
                   {checkBookmark()?.includes(post._id)
                     ? <FontAwesomeIcon
                         icon={faBookmark}
-                        style={{ color: "#eabfff" }}
+                        style={{ color: "#afa193" }}
                         size="2xl"
                       />
                     : <FontAwesomeIcon

@@ -6,6 +6,9 @@ import "./bookmark.css";
 import { SideBar } from "../../components/SideBar/Sidebar";
 import { Box } from "@chakra-ui/react";
 import { UserContext } from "../../services/HandlerContext/UserFunc";
+import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { color } from "framer-motion";
 
 export const Bookmark = () => {
   const { mainState } = useContext(MainContext);
@@ -20,7 +23,7 @@ export const Bookmark = () => {
 
   const bookmarkData = [...mainState.bookMark];
 
-  const removeHandler = (postId) => {
+  const removeHandler = (postId) => { 
     if (checkBookmark().includes(postId)) {
       removeBookmark(postId);
     }
@@ -38,7 +41,7 @@ export const Bookmark = () => {
                 {console.log(bmark)}
                 <Box className="bookmark-user">
                   <Box className="bookmark-user-info">
-                    <img src={avatar(bmark.username)} />
+                    <img src={avatar(bmark.username)} className="avatar" />
                     <h3>
                       {bmark.firstName} {bmark.lastName}
                       <p>
@@ -51,21 +54,42 @@ export const Bookmark = () => {
                   </Box>
                 </Box>
 
-                <p>{bmark.content}</p>
-                <button onClick={() => removeHandler(bmark._id)}>
-                  Remove Form Bookmark
-                </button>
-                <button
-                  onClick={() => {
-                    checkLikes()?.includes(bmark._id) === true
-                      ? dislikeHandler(bmark._id)
-                      : likeHandler(bmark._id);
-                  }}
-                >
-                  {checkLikes()?.includes(bmark._id) === true
-                    ? "dislike"
-                    : "like"}
-                </button>
+                <p className="bookmark-post-content">{bmark.content}</p>
+                <img src={bmark.img} alt="" />
+                <div>
+                  <button onClick={() => removeHandler(bmark._id)}>
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      style={{ color: "#e63d3d" }}
+                      size="2xl"
+                    />
+                  </button>{" "}
+                  <button
+                    onClick={() => {
+                      checkLikes()?.includes(bmark._id) === true
+                        ? dislikeHandler(bmark._id)
+                        : likeHandler(bmark._id);
+                    }}
+                    bg="none"
+                    border="none"
+                  >
+                    {checkLikes()?.includes(bmark._id) === true ? (
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        style={{ color: "black" }}
+                        size="2xl"
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        style={{ color: "white" }}
+                        size="2xl"
+                      />
+                    )}
+                  </button>
+                </div>
+
+                <hr />
               </li>
             ))}
           </Box>

@@ -109,26 +109,28 @@ export const Home = () => {
             onChange={(e) => (postDetails.content = e.target.value)}
           ></Textarea>
 
-          <label>
+          {/* <label>
             Choose Image
             <Input
               onChange={(e) => (postDetails.img = e.target.files[0])}
               type="file"
               className="input"
             />
-          </label>
+          </label> */}
           <Button
             onClick={() => checkPost()}
             className="button"
             bg="none"
             border="none"
           >
-            <FontAwesomeIcon icon={faPaperPlane} size="2xl" />
+
+          <p className="post"> POST <FontAwesomeIcon icon={faPaperPlane} size="xs" /></p>
+            
           </Button>
         </Box>
         <Box className="button-trending-sorting">
-          <Button onClick={() => trendingHandler()}>Trending</Button>
-          <Button onClick={() => latestHandler()}>Latest</Button>
+          <Button onClick={() => trendingHandler()}>Latest</Button>
+          <Button onClick={() => latestHandler()}>Trending</Button>
         </Box>
         <Box className="posts">
           {postData?.map((post) => (
@@ -153,7 +155,7 @@ export const Home = () => {
                       <FontAwesomeIcon
                         icon={faCircleInfo}
                         size="2xl"
-                        style={{ color: "#eabfff" }}
+                        style={{ color: "#ddd4cc" }}
                       />
                     </MenuButton>
                     <MenuList>
@@ -171,7 +173,7 @@ export const Home = () => {
                           <FontAwesomeIcon
                             icon={faEdit}
                             size="2xl"
-                            style={{ color: "#3c005a" }}
+                            style={{ color: "#ddd4cc" }}
                           />
                         </Button>
                       </MenuItem>
@@ -185,7 +187,7 @@ export const Home = () => {
                           <FontAwesomeIcon
                             icon={faTrashAlt}
                             size="2xl"
-                            style={{ color: "#3c005a" }}
+                            style={{ color: "#ddd4cc" }}
                           />
                         </Button>
                       </MenuItem>
@@ -254,7 +256,7 @@ export const Home = () => {
                     {checkLikes()?.includes(post._id) === true ? (
                       <FontAwesomeIcon
                         icon={faHeart}
-                        style={{ color: "#eabfff" }}
+                        style={{ color: "#afa193" }}
                         size="2xl"
                       />
                     ) : (
@@ -278,7 +280,7 @@ export const Home = () => {
                     {checkBookmark()?.includes(post._id) ? (
                       <FontAwesomeIcon
                         icon={faBookmark}
-                        style={{ color: "#eabfff" }}
+                        style={{ color: "#afa193" }}
                         size="2xl"
                       />
                     ) : (

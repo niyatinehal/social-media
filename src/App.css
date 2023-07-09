@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
 
 :root{
   --color-0:#fcf3ea;
@@ -8,7 +9,8 @@
   --color-3:#9b8269;
   --color-4:#5f5449;
  --font:'Dancing Script',cursive;
- --font-2:'Black Ops One',cursive
+ --font-2:'Black Ops One',cursive;
+ --fonnt-3:'Oleo Script', cursive;
 }
 
 
@@ -17,10 +19,11 @@
   /* height: 100vh; */
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -28,16 +31,6 @@
   }
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
 
 .App-link {
   color: #61dafb;

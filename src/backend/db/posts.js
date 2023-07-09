@@ -49,7 +49,7 @@ export const posts = [
     _id: uuid(),
     id:201,
     content:
-      "Rewatching battle between naruto vs pain, Naruto makes an entrance into the Hidden Leaf Village, but doesn’t recognize his surroundings. Naruto is unable to sense the Chakra of many beloved to him, including his teacher Kakashi Hatake.",
+      "Chasing dreams and capturing moments ✨",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -63,12 +63,12 @@ export const posts = [
     comment: [],
     following: [],
     followers: [],
-    img: "https://loremflickr.com/500/500",
+    img: "https://64.media.tumblr.com/1875c3066878568b1fd62c32c6a70f5d/be6416e10e193b59-68/s500x750/bd4731257410320d74cc3a7d2fd22498763b683a.jpg",
   },
   {
     _id: uuid(),
     id:301,
-    content: "Waiting for Attack on Titan Final episode",
+    content:"In a world of color, I found solace in shades of black and white.",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -82,12 +82,12 @@ export const posts = [
     comment: [],
     following: [],
     followers: [],
-    img: "https://picsum.photos/seed/pic1/500/500",
+    img: "https://i1.sndcdn.com/artworks-cLUUzw4jZwpWOIxG-zMyQ6w-t500x500.jpg",
   },
   {
     _id: uuid(),
     id:401,
-    content: "Hope soon vegeta will get ultra instinct",
+    content: "Lost in the art of simplicity ✨",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -101,12 +101,12 @@ export const posts = [
     comment: [],
     following: [],
     followers: [],
-    img: "https://loremflickr.com/500/500/nature",
+    img: "https://i1.sndcdn.com/artworks-KBwCz2KUpOaVcIMB-Rv18mQ-t500x500.jpg",
   },
   {
     _id: uuid(),
     id:501,
-    content: "Waiting for Satoru Gojo to unleash his full power",
+    content:"Life is short. Smile while you still have teeth!" ,
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -120,6 +120,6 @@ export const posts = [
     comment: [],
     following: [],
     followers: [],
-    img: "https://loremflickr.com/500/500/abstract",
+    img: "https://i.pinimg.com/564x/33/ec/d6/33ecd65070d76565e958302f0bbbb6b4.jpg ",
   },
 ];

@@ -29,7 +29,7 @@
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   border-radius: 8px;
   outline: none;
-  font-family: var(--font);
+  font-family: var(--font-3);
   height: max-content;
   width: -webkit-fill-available;
 }
@@ -46,7 +46,7 @@ input {
 }
 
 .create-post {
-  font-family: var(--font);
+  font-family: var(--font-3);
   color: var(--color-4);
   border: 2px solid black;
   margin-top: 2rem;
@@ -83,13 +83,13 @@ lable {
 .button-trending-sorting{
   display: flex;
   justify-content: center;
-  font-family: var(--font);
+  font-family: var(--font-3);
 }
 
 .button-trending-sorting button{
   width: 50%;
   padding: 10px;
-  font-family: var(--font);
+  font-family: var(--font-3);
   background-color: var(--color-4);
   border: 2px solid var(--color-1);
   border-radius: 2rem;
@@ -107,7 +107,7 @@ lable {
   color: var(--color-1);
   border: 2px solid var(--color-1);
   background-color: var(--color-4);
-  font-family: var(--font);
+  font-family: var(--font-3);
   font-size: 1.5rem;
 }
 
@@ -143,6 +143,7 @@ lable {
 
 .user-info .date {
   font-size: small;
+  padding-bottom: 1rem;
 }
 .posts .avatar {
   width: 50px;
@@ -152,8 +153,15 @@ lable {
   object-position: center;
   border: 2px solid var(--color-1);
   margin-right: 5px;
-  font-family: var(--font);
+  font-family: var(--font-3);
   margin-left: 5px;
+}
+
+.post{
+  font-size: large;
+  font-family: var(--font-3);
+  font-weight: bolder;
+  margin: 0;
 }
 
 .posts .posted-img {
@@ -178,7 +186,7 @@ margin-bottom: 10px;
   margin-top: 0.5rem;
   margin-bottom: 10px;
   margin-left: 0.5rem;
-  font: var(--font);
+  font: var(--font-3);
   font-weight: 300;
   font-size: 20px;
   padding: 8px 12px;
