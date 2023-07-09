@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { MainContext } from "../../services/contexts/MainContext";
 import { AuthContext } from "../../services/HandlerContext/AuthFunc";
 import "./userProfile.css";
-import { Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react"; 
 import "./userProfile.css";
 import { SideBar } from "../../components/SideBar/Sidebar";
 import { Suggestions } from "../../components/Suggestions/Suggestions";
@@ -28,7 +28,7 @@ export const UserProfile = () => {
           <h3><strong>Bio: </strong>{loggedInUser.bio}</h3>
         </Box>
       </Box>
-      {/* <Suggestions/> */}
+      <Suggestions/>
     </Box>
   );
 };

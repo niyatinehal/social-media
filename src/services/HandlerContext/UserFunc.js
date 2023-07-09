@@ -4,7 +4,7 @@ import { createContext } from "react";
 import { MainContext } from "../contexts/MainContext";
 import axios from "axios";
 
-export const UserContext = createContext();
+export const UserContext = createContext(); 
 
 export const UserProvider = ({ children }) => {
   const { mainDispatcher, mainState } = useContext(MainContext);
@@ -19,21 +19,21 @@ export const UserProvider = ({ children }) => {
     try {
       const file = post.img;
       console.log(file);
-      const present_key = "social_media_proj";
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", present_key);
+      // const present_key = "social_media_proj";
+      // const formData = new FormData();
+      // formData.append("file", file);
+      // formData.append("upload_preset", present_key);
       if (post.img) {
-        const res = await fetch(
-          `https://api.cloudinary.com/v1_1/king-cloud/image/upload`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-        const x = await res.json();
-        console.log(x.url);
-        post.avatar = x.url;
+        // const res = await fetch(
+        //   `https://api.cloudinary.com/v1_1/king-cloud/image/upload`,
+        //   {
+        //     method: "POST",
+        //     body: formData,
+        //   }
+        // );
+        // const x = await res.json();
+        // console.log(x.url);
+        post.avatar = null;
       } else {
         return { ...post, img: null };
       }
@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
   const editProfile = async (newDetails) => {
     try {
       const response = await axios.post(
-        `/api/user/edit`,
+        `/api/users/edit`,
         { userData: newDetails },
         {
           headers: {
@@ -54,24 +54,33 @@ export const UserProvider = ({ children }) => {
           },
         }
       );
-      mainDispatcher({ type: "userDetails", payload: response.data.user });
+      if(response.status===201){
+        console.log("changed");
+        mainDispatcher({ type: "userDetails", payload: response.data.user });
+        return response.data.user
+      }
+      
     } catch (error) {
       console.log(error);
     }
   };
 
+  console.log("@@",mainState)
+ 
   const editedProf = async (user) => {
-    console.log(user);
+    
     const updatedUser = await imageUpload(user);
-    console.log(updatedUser);
+    
     const newUserDetails = await editProfile(updatedUser);
+    console.log("^^^",newUserDetails)
+     mainDispatcher({type:"getPosts", payload:newUserDetails})
   };
 
   const avatar = (userName) => {
     const url = mainState.existingUser.find(
       (user) => user.username === userName
     );
-    console.log(url)
+    
     return url ? url.avatar : undefined;
   };
 

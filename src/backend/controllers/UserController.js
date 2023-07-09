@@ -37,7 +37,7 @@ export const getUserHandler = function (schema, request) {
 
 /**
  * This handler handles updating user details.
- * send POST Request at /api/users/edit
+ * send POST Request at /api/users/edit 
  * body contains { userData }
  * */
 
@@ -188,7 +188,7 @@ export const removePostFromBookmarkHandler = function (schema, request) {
 };
 
 /**
- * This handler handles follow action.
+ * This handler handles follow action. 
  * send POST Request at /api/users/follow/:followUserId/
  * */
 

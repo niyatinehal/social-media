@@ -1,18 +1,23 @@
-.profile{
-    display: flex;
-      background-image: url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg");
-      height: 100%;
-      font-family: var(--font);
-    
+.profile {
+  display: flex;
+  /* background-image: url("https://images.assetsdelivery.com/compings_v2/leoedition/leoedition1904/leoedition190400354.jpg"); */
+  height: 100%;
+  font-family: var(--font-3);
 }
 
-.profile-data{
-    border: 1rem solid var(--color-3);
-    width: 75%;
-    margin: 2rem;
-    background-color: var(--color-1);
-    border-radius: 3rem;
-    color: var(--color-3);
+.profile-data {
+  border: 1rem solid var(--color-3);
+  width: 75%;
+  margin: 2rem;
+  background-color: var(--color-1);
+  border-radius: 3rem;
+  color: var(--color-3);
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  margin-left: 20%;
+  margin-top: 5rem;
+  height: 80vh;
 }
 
 .avatar-profile {
@@ -27,6 +32,7 @@
   margin-left: 5px;
   margin-top: 3rem;
 }
-.profile-data h3,h1{
-    margin: 0;
+.profile-data h3,
+h1 {
+  margin: 0;
 }

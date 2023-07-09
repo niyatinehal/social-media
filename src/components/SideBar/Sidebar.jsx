@@ -1,6 +1,6 @@
 import { Box, IconButton, VStack, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,8 +11,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./sidebar.css";
+import { useContext } from "react";
+import { MainContext } from "../../services/contexts/MainContext";
 
 export const SideBar = () => {
+  const nav=useNavigate();
+  const{loggedInUser}=useContext(MainContext);
+  console.log(loggedInUser);
   return (
     <Box className="sidebar" >
       <Box className="sidebar-nav">
@@ -41,11 +46,11 @@ export const SideBar = () => {
           <Box className="sidebar-user-profile" align="center">
             <Box className="sidebar-user-icon">
               <FontAwesomeIcon icon={faUser} size="lg"  className="dp"/>
-              <NavLink className="sidebar-link" to="/user-profile">
+              <div className="sidebar-link" onClick={()=>nav(`/profile-details/${loggedInUser.username}`)}>
                 <Text className="sidebar-user-name" ml={5}>
                   User Profile
                 </Text>
-              </NavLink>
+              </div>
             </Box>
           </Box>
       </Box>

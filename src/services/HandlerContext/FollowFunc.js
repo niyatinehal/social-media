@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import axios from "axios";
+import axios from "axios"; 
 import { useCheckbox } from "@chakra-ui/react";
 import { useContext } from "react";
 import { MainContext } from "../contexts/MainContext";
@@ -11,6 +11,7 @@ export const FollowProvider = ({ children }) => {
   const { mainDispatcher } = useContext(MainContext);
 
   const setFollowing = async (followingId) => {
+    console.log(followingId);
     try {
       const response = await axios.post(
         `/api/users/follow/${followingId}`,

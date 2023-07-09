@@ -55,14 +55,14 @@ export const Explore = () => {
               </Box>
 
               <p
-                onClick={() => navigate(`/post-details/${post._id}`)}
+                // onClick={() => navigate(`/post-details/${post._id}`)}
                 className="explore-post-content"
               >
                 {post.content}
               </p>
 
               <img src={post.img} />
-              <Box>
+              <Box className="button">
                 <Button
                   onClick={() => {
                     checkLikes()?.includes(post._id) === true
@@ -86,7 +86,7 @@ export const Explore = () => {
                       />
                   )}
                 </Button>
-                {post.likes.likeCount}{" "}
+                
                 <Button
                   onClick={() => {
                     checkBookmark()?.includes(post._id) === true

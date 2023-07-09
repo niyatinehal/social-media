@@ -16,7 +16,7 @@
   margin-left: 20%;
   margin-top: 5rem;
 }
-.profile-avatar {
+.profile-avatar { 
   width: 100px;
   height: 100px;
   border-radius: 25%;
@@ -46,6 +46,7 @@
   flex-direction: column;
   margin-left: 3rem;
   align-items: center;
+  padding-left: 6rem;
 }
 .profile-user p{
  margin-top: 0;
@@ -64,3 +65,57 @@
     text-align: left;
     padding-left: 5rem;
 }
+.for-edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:8rem
+}
+.follow{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: medium;
+  font-weight: bold;
+}
+.follow-btn{
+  margin-top: 0.5rem;
+  margin-bottom: 20px;
+  font: var(--font-3);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 15px;
+  display: inline-block;
+  border: 5px solid var(--color-4);
+  border-radius: 4rem;
+  color: var(--color-4);
+  background-color: var(--color-1);
+}
+.button{
+  color: var(--color-1);
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.edit-profile-post{
+   border: 2px solid var(--color-1);
+  margin:10px 2rem;
+  text-align: center;
+  font-family: var(--font-3);
+  padding-right: 10px;
+}
+.edit-profile-post input{
+  font-family: var(--font-3);
+  padding: 5px;
+}
+.edit-post-btn{
+  border: 2px solid var(--color-1);
+  border-radius: 20px;
+  padding: 10px;
+  color: var(--color-4);
+  font-weight: bold;
+  margin: 10px;
+  background-color: var(--color-1);
+}
+

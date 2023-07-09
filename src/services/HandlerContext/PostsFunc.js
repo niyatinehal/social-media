@@ -227,7 +227,7 @@ export const PostsContextProvider = ({ children }) => {
   const deletePost=async(postId)=>{
     console.log(encodedToken)
     try {
-      const response=await axios.delete(`/api/posts/${postId}`,{},{
+      const response=await axios.delete(`/api/user/posts/${postId}`,{},{
          headers: {
             authorization: encodedToken,
           }

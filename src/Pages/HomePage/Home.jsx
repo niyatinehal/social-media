@@ -119,7 +119,6 @@ export const Home = () => {
           </label> */}
           <Button
             onClick={() => checkPost()}
-            className="button"
             bg="none"
             border="none"
           >
@@ -213,7 +212,7 @@ export const Home = () => {
                       </Button>
                     </Box>
 
-                    <label className="edit-lable">
+                    {/* <label className="edit-lable">
                       <p>
                         choose New Image{" "}
                         <Input
@@ -221,7 +220,7 @@ export const Home = () => {
                           onChange={(e) => setImage(e.target.files[0])}
                         />
                       </p>
-                    </label>
+                    </label> */}
                     <Box>
                       <Button
                         className="edit-btn"
@@ -243,7 +242,7 @@ export const Home = () => {
 
                 <img src={post.img} alt="" className="posted-img" />
 
-                <Box>
+                <Box className="button">
                   <Button
                     onClick={() => {
                       checkLikes()?.includes(post._id) === true
@@ -266,8 +265,7 @@ export const Home = () => {
                         size="2xl"
                       />
                     )}
-                  </Button>{" "}
-                  {post.likes.likeCount}{" "}
+                  </Button>
                   <Button
                     onClick={() => {
                       checkBookmark()?.includes(post._id) === true

@@ -39,7 +39,7 @@ export const MainContextProvider = ({ children }) => {
           posts: action.payload,
         };
       case "getUsers":
-        return {
+        return { 
           ...state,
           existingUser: action.payload,
         };
@@ -49,6 +49,7 @@ export const MainContextProvider = ({ children }) => {
           loggedInUser: action.payload,
           followers: action.payload.followers,
           following: action.payload.following,
+          bio:action.payload.bio
         };
 
       case "loggedInTrue":
