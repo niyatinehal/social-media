@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-// import miragejs from "miragejs"
 import { NavLink, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import { SignupPage } from "./Pages/SignupPage/SignupPage";
@@ -11,7 +10,6 @@ import { Explore } from "./Pages/ExplorePage/Explore";
 import { LikedPage } from "./Pages/LikedPage/LikedPage";
 import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { UserProfile } from "./Pages/UserProfile/UserProfile";
-import Mockman from "mockman-js";
 import { RequireAuth } from "./utils/RequireAuth";
 import { useContext } from "react";
 import { MainContext } from "./services/contexts/MainContext";

@@ -3,16 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { mockman } from "mockman-js";
-// import miragejs from "miragejs"
-
 import { makeServer } from "./server";
-
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "./services/HandlerContext/AuthFunc";
 import { MainContextProvider } from "./services/contexts/MainContext";
 import { PostsContextProvider } from "./services/HandlerContext/PostsFunc";
-import { ChakraProvider } from "@chakra-ui/react";
 import { FollowProvider } from "./services/HandlerContext/FollowFunc";
 import { UserProvider } from "./services/HandlerContext/UserFunc";
 
