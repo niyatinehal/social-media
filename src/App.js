@@ -3,17 +3,14 @@ import "./App.css";
 import { NavLink, Route, Routes } from "react-router-dom";
 
 import { SignupPage } from "./Pages/Signup/SignupPage";
-import { SideBar } from "./components/SideBar/Sidebar";
 import { Home } from "./Pages/HomePage/Home";
 import { Bookmark } from "./Pages/BookmarkPage/Bookmark";
 import { Explore } from "./Pages/ExplorePage/Explore";
-import { LikedPage } from "./Pages/LikedPage/LikedPage";
 import { LoginPage } from "./Pages/Login/LoginPage";
 import { UserProfile } from "./Pages/User/UserProfile";
 import { RequireAuth } from "./utils/RequireAuth";
 import { useContext } from "react";
 import { MainContext } from "./services/contexts/MainContext";
-import { Navbar } from "./components/Navbar/Navbar";
 import { PostDetails } from "./Pages/Post/PostDetails";
 import { ProfileDetails } from "./Pages/ProfileDetail/ProfileDetails";
 
@@ -33,9 +30,6 @@ function App() {
             </RequireAuth>} />
         <Route path="/explore" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
               <Explore />
-            </RequireAuth>} />
-        <Route path="/liked" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
-              <LikedPage />
             </RequireAuth>} />
         <Route path="/login-page" element={<LoginPage />} />
         <Route
