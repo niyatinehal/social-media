@@ -1,21 +1,21 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { NavLink, Route, Routes } from "react-router-dom";
-import { LandingPage } from "./Pages/LandingPage/LandingPage";
-import { SignupPage } from "./Pages/SignupPage/SignupPage";
+
+import { SignupPage } from "./Pages/Signup/SignupPage";
 import { SideBar } from "./components/SideBar/Sidebar";
 import { Home } from "./Pages/HomePage/Home";
 import { Bookmark } from "./Pages/BookmarkPage/Bookmark";
 import { Explore } from "./Pages/ExplorePage/Explore";
 import { LikedPage } from "./Pages/LikedPage/LikedPage";
-import { LoginPage } from "./Pages/LoginPage/LoginPage";
-import { UserProfile } from "./Pages/UserProfile/UserProfile";
+import { LoginPage } from "./Pages/Login/LoginPage";
+import { UserProfile } from "./Pages/User/UserProfile";
 import { RequireAuth } from "./utils/RequireAuth";
 import { useContext } from "react";
 import { MainContext } from "./services/contexts/MainContext";
 import { Navbar } from "./components/Navbar/Navbar";
-import { PostDetails } from "./Pages/PostDetails/PostDetails";
-import { ProfileDetails } from "./Pages/ProfileDetails/ProfileDetails";
+import { PostDetails } from "./Pages/Post/PostDetails";
+import { ProfileDetails } from "./Pages/ProfileDetail/ProfileDetails";
 
 function App() {
   const { mainState } = useContext(MainContext);
@@ -26,14 +26,6 @@ function App() {
      {/* <SideBar /> */}
 
       <Routes>
-        <Route
-          path="/landing-page"
-          element={
-            <RequireAuth>
-              <LandingPage />
-            </RequireAuth>
-          }
-        />
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<SignupPage />} />
         <Route path="/bookmark" element={<RequireAuth isLoggedIn={mainState?.isLoggedIn}>
