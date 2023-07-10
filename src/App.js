@@ -42,7 +42,6 @@ function App() {
         />
         <Route path="/post-details/:postId" element={<PostDetails/>}/>
         <Route path="/profile-details/:profileId" element={<ProfileDetails/>} />
-        <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>
   );
