@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import miragejs from "miragejs"
 import { NavLink, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import { SignupPage } from "./Pages/SignupPage/SignupPage";
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className="App">
 
-    <Navbar/>
+    {/* <Navbar/> */}
      {/* <SideBar /> */}
 
       <Routes>

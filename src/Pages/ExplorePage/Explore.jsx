@@ -10,6 +10,8 @@ import "./explore.css";
 import { Box, Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const Explore = () => {
   const { mainState, loggedInUser } = useContext(MainContext);
@@ -28,12 +30,34 @@ export const Explore = () => {
   const { avatar } = useContext(UserContext);
   const exploreData = [...mainState.posts];
   console.log(exploreData.map((data) => data.username));
+  const [sort, setSort] = useState(false);
+
+   const trendingHandler = () => {
+    setSort(false);
+  };
+
+  const latestHandler = () => {
+    setSort(true);
+  };
+  const sorted = sort
+    ? exploreData.sort((a, b) => b.likes.likeCount - a.likes.likeCount)
+    : exploreData;
+
   return (
     <Box className="explore">
+    <Navbar/>
       <SideBar />
+       
       <Box className="explore-post">
+      <Box className="button-trending-sorting">
+          <Button onClick={() => trendingHandler()}>Latest</Button>
+          <Button onClick={() => latestHandler()}>Trending</Button>
+        </Box>
         {exploreData.map((post) => (
           <Box key={post.id} className="explore-posts-list">
+          <Box>
+
+          </Box>
             <li key={post.id}>
               <Box className="explore-user-info">
                 <Box className="explore-user-info-box">
@@ -79,11 +103,15 @@ export const Explore = () => {
                       size="2xl"
                     />
                   ) : (
-                    <FontAwesomeIcon
+                    <div className="like-count">
+                      <FontAwesomeIcon
                         icon={faHeart}
                         style={{ color: "white" }}
                         size="2xl"
                       />
+                      <p>{""}{post.likes.likeCount}</p>
+                    </div>
+                    
                   )}
                 </Button>
                 
@@ -102,11 +130,13 @@ export const Explore = () => {
                         style={{ color: "#afa193" }}
                         size="2xl"
                       />
-                    : <FontAwesomeIcon
+                    : (<div>
+                      <FontAwesomeIcon
                         icon={faBookmark}
                         style={{ color: "white" }}
                         size="2xl"
-                      />}
+                      />
+                    </div>)}
                 </Button>
               </Box>
             </li>

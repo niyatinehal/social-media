@@ -9,6 +9,7 @@ import { UserContext } from "../../services/HandlerContext/UserFunc";
 import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { color } from "framer-motion";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const Bookmark = () => {
   const { mainState } = useContext(MainContext);
@@ -32,13 +33,13 @@ export const Bookmark = () => {
   console.log(bookmarkData);
   return (
     <Box className="bookmark">
+    <Navbar/>
       <SideBar />
       <Box className="bookmark-content">
         {bookmarkData.length > 0 ? (
           <Box className="bookmark-posts-list">
             {bookmarkData.map((bmark) => (
               <li>
-                {console.log(bmark)}
                 <Box className="bookmark-user">
                   <Box className="bookmark-user-info">
                     <img src={avatar(bmark.username)} className="avatar" />
@@ -56,7 +57,7 @@ export const Bookmark = () => {
 
                 <p className="bookmark-post-content">{bmark.content}</p>
                 <img src={bmark.img} alt="" />
-                <div>
+                <div className="button">
                   <button onClick={() => removeHandler(bmark._id)}>
                     <FontAwesomeIcon
                       icon={faTrash}
@@ -72,6 +73,7 @@ export const Bookmark = () => {
                     }}
                     bg="none"
                     border="none"
+                    style={{width:"200px"}}
                   >
                     {checkLikes()?.includes(bmark._id) === true ? (
                       <FontAwesomeIcon
@@ -80,11 +82,13 @@ export const Bookmark = () => {
                         size="2xl"
                       />
                     ) : (
-                      <FontAwesomeIcon
+                      <div className="like-count"><FontAwesomeIcon
                         icon={faHeart}
                         style={{ color: "white" }}
                         size="2xl"
                       />
+                      <p>{" "}{bmark.likes.likeCount}</p></div>
+                      
                     )}
                   </button>
                 </div>

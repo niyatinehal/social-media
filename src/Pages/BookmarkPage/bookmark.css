@@ -67,3 +67,13 @@ button{
     padding-left: 2rem;
 
 }
+.like-count {
+  display: flex;
+  gap: 15px;
+}
+.like-count p{
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: var(--color-1);
+  font-size: 20px;
+}

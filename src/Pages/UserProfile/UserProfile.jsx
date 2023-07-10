@@ -6,6 +6,7 @@ import { Box } from "@chakra-ui/react";
 import "./userProfile.css";
 import { SideBar } from "../../components/SideBar/Sidebar";
 import { Suggestions } from "../../components/Suggestions/Suggestions";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const UserProfile = () => {
   const { mainState, loggedInUser } = useContext(MainContext);
@@ -14,6 +15,7 @@ export const UserProfile = () => {
   console.log("userPrifile", profile);
   return (
     <Box className="profile">
+    <Navbar/>
       <SideBar />
       <Box className="profile-data">
         <Box className="user-info-profile">

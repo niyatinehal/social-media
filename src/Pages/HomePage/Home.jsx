@@ -26,6 +26,7 @@ import {
   faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const Home = () => {
   const { mainState, loggedInUser, mainDispatcher } = useContext(MainContext);
@@ -100,6 +101,7 @@ export const Home = () => {
   const homePage = () => {};
   return (
     <Box className="home">
+    <Navbar/>
       <SideBar />
       <Box className="home-content">
         <Box className="create-post">
@@ -259,11 +261,15 @@ export const Home = () => {
                         size="2xl"
                       />
                     ) : (
-                      <FontAwesomeIcon
+                      <div className="like-count">
+                        <FontAwesomeIcon
                         icon={faHeart}
                         style={{ color: "white" }}
                         size="2xl"
                       />
+                      <p>{" "}{post.likes.likeCount}</p>
+                      </div>
+                      
                     )}
                   </Button>
                   <Button

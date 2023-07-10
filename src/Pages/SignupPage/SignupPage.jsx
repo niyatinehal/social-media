@@ -44,7 +44,7 @@ export const SignupPage = () => {
     } else {
       signup(Details);
 
-      navigate("/login-page");
+      navigate("/login-page"); 
     }
   };
 

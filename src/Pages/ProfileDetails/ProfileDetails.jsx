@@ -16,6 +16,7 @@ import {
   faHeart,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const ProfileDetails = () => {
   const { profileId } = useParams();
@@ -74,6 +75,7 @@ export const ProfileDetails = () => {
   }
   return (
     <div className="profile-details">
+    <Navbar/>
       <SideBar />
       <section className="profile-post">
         <div>
@@ -193,11 +195,15 @@ export const ProfileDetails = () => {
                     size="2xl"
                   />
                 ) : (
-                  <FontAwesomeIcon
+                  <div className="like-count">
+                    <FontAwesomeIcon
                     icon={faHeart}
                     style={{ color: "white" }}
                     size="2xl"
                   />
+                  <p>{" "}{post.likes.likeCount}</p>
+                  </div>
+                  
                 )}
               </button>
               <button
