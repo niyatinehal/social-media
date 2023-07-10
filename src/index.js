@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { mockman } from "mockman-js";
-import miragejs from "miragejs"
+// import miragejs from "miragejs"
 
 import { makeServer } from "./server";
 
